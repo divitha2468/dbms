@@ -4,7 +4,7 @@ import pymysql
 from django.db import connection
 
 cursor=connection.cursor()
-from.models import parent
+from.models import parent,adoption
 def parentform(request):
     return render(request,"parentform.html")
 
@@ -24,9 +24,21 @@ def submit_form(request):
         pincode= request.POST['pincode'], 
         state= request.POST['state'], 
         country= request.POST['country'],
-        orphanname=request.POST['orname'],
-        orphanid=request.POST['orid'],
+        
 
     )
     p.save()
+    return render(request, 'adoptionform.html')
+def adoption_form(request):
+    a = adoption(
+        parentname = request.POST['pname'],
+        phno= request.POST['phno'],
+        email = request.POST['emailid'],     
+        address= request.POST['add'], 
+        orphanname= request.POST['oname'], 
+        orphanid= request.POST['oid'], 
+        date= request.POST['date'], 
+    
+    )
+    a.save()
     return render(request, 'sample_view.html')

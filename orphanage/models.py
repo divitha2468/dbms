@@ -12,11 +12,19 @@ class parent(models.Model):
     pincode=models.IntegerField()
     state=models.CharField(max_length=20)
     country=models.CharField(max_length=20)
-    orphanname=models.CharField(max_length=10)
-    orphanid=models.IntegerField()
-    
-
+   
     class meta:
         db_table="parent"
+class adoption(models.Model):
+    parentname=models.CharField(max_length=30,default=False)
+    phno=models.CharField(max_length=10,default=False)
+    email=models.EmailField()
+    address=models.CharField(max_length=100)
+    orphanname=models.CharField(max_length=20)
+    orphanid=models.IntegerField()
+    date=models.DateField()
+    class meta:
+        db_table="adoption"
+
    
     
