@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <style>
+        td {
+            color: white;
+            height: 40px;
+        }
+        
+        .smallbox {
+            height: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" action='/submit_donor/'>
+        {% csrf_token %}
+        <center>
+            <h1 style="color:SlateBlue"><u>ADD DONOR FORM</u></h1>
+            <table border="0" cellspacing="0" bgcolor="SlateBlue" style="border:1px solid blue; padding:10px">
+                <tr>
+                    <td width="200px"> NEW DONOR ID</td>
+                    <td><input name='did' type="text" /></td>
+                </tr>
+                <tr>
+                    <td width="200px">DONOR NAME</td>
+                    <td><input name='dname' type="text" maxlength="30" /></td>
+                </tr>
+                <tr>
+                    <td width="200px">MOBILE NUMBER</td>
+                    <td><input name='dphno' type="text" maxlength="10" />(10 digit number)</td>
+                </tr>
+                <tr>
+                    <td width="200px">EMAIL ID</td>
+                    <td><input name='demailid' type="email" /></td>
+                </tr>
+                <tr>
+                    <td width="200px">ADDRESS</td>
+                    <td><input name='dadd' textarea cols="45" rows="4"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px">CITY</td>
+                    <td><input id="g" name='city' type="text">(max 30 characters a-z and A-Z)</td>
+                </tr>
+                <tr>
+                    <td width="200px">PINCODE</td>
+                    <td><input id="h" name='pincode' type="text" maxlength="6">(6 digit number)</td>
+                </tr>
+                <tr>
+                    <td width="200px">STATE</td>
+                    <td><input id="i" name='state' type="text">(max 30 characters a-z and A-Z)</td>
+                </tr>
+                <tr>
+                    <td width="200px">COUNTRY</td>
+                    <td><input id='j' name='country' type="text" value="India"></td>
+                </tr>
+                <td></td>
+                <td align="center" style="padding-right:180px"><input type="submit" value="Submit" />
+                </td>
+                </tr>
+
+            </table>
+        </center>
+    </form>
+</body>
+
+</html>

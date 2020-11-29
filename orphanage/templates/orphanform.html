@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <style>
+        td {
+            color: white;
+            height: 40px;
+        }
+        
+        .smallbox {
+            height: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" action='/submit_orphan/'>
+        {% csrf_token %}
+        <center>
+            <h1 style="color:slateblue"><u>ORPHAN REGISTRATION FORM</u></h1>
+            <table border="0" cellspacing="0" bgcolor="Lavender" style="border:1px solid rgb(168, 168, 168); padding:10px">
+                <tr>
+                    <td width="200px">ORPHAN ID</td>
+                    <td><input name='oid' type="text" maxlength="30" /></td>
+                </tr>
+                <tr>
+                    <td width="200px">ORPHAN NAME</td>
+                    <td><input name='oname' type="text" maxlength="30" />(max 30 characters a-z and A-Z)</td>
+                </tr>
+                <tr>
+                    <td width="200px">AGE</td>
+                    <td><input name='age' type="number" /></td>
+                </tr>
+
+                <tr>
+                    <td width="200px">GENDER</td>
+                    <td><input name='gender' type="text" /></td>
+                </tr>
+                <tr>
+                    <td width="200px">DATE OF BIRTH</td>
+                    <td><input name='dob' type="date"></td>
+                </tr>
+
+                <td></td>
+                <td align="center" style="padding-right:180px"><input type="submit" value="Submit" />
+                </td>
+
+
+            </table>
+        </center>
+    </form>
+</body>
+
+</html>
