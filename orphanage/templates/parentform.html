@@ -1,6 +1,10 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <style>
         td {
             color: white;
@@ -11,63 +15,97 @@
             height: 2px;
         }
     </style>
+
 </head>
 
 <body>
-    <form method="post" action='/submit_parent/'>
+
+    <form method="post" class="needs-validation" name="Form" action='/submit_parent/' novalidate role="form">
         {% csrf_token %}
+
         <center>
             <h1 style="color:SlateBlue"><u>PARENT REGISTRATION FORM</u></h1>
             <table border="0" cellspacing="0" bgcolor="SlateBlue" style="border:1px solid blue; padding:10px">
                 <tr>
                     <td width="200px">FIRST NAME</td>
-                    <td><input name='fname' type="text" maxlength="30" />(max 30 characters a-z and A-Z)</td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="fname" class="form-control" id="a" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td width="200px">LAST NAME</td>
-                    <td><input name='lname' type="text" maxlength="30" />(max 30 characters a-z and A-Z)</td>
+                    <td><input id="b" name='lname' type="text" maxlength="30" />(max 30 characters a-z and A-Z)</td>
                 </tr>
                 <tr>
                     <td width="200px">EMAIL ID</td>
-                    <td><input name='emailid' type="email" /></td>
+                    <td><input id="c" name='emailid' type="email" /></td>
                 </tr>
                 <tr>
                     <td width="200px">MOBILE NUMBER</td>
                     <option value="{{parent.phno}}"></option>
-                    <td><input name='phno' type="text" maxlength="10" />(10 digit number)</td>
+                    <td><input id="d" name='phno' type="text" maxlength="10" />(10 digit number)</td>
                 </tr>
                 <tr>
                     <td width="200px">GENDER</td>
-                    <td><input name='gender' type="text" /></td>
+                    <td><input id="e" name='gender' type="text" /></td>
                 </tr>
                 <tr>
                     <td width="200px">ADDRESS</td>
-                    <td><input name='add' textarea cols="45" rows="4"></textarea>
+                    <td><input id="f" name='add' textarea cols="45" rows="4"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td width="200px">CITY</td>
-                    <td><input name='city' type="text">(max 30 characters a-z and A-Z)</td>
+                    <td><input id="g" name='city' type="text">(max 30 characters a-z and A-Z)</td>
                 </tr>
                 <tr>
                     <td width="200px">PINCODE</td>
-                    <td><input name='pincode' type="text" maxlength="6">(6 digit number)</td>
+                    <td><input id="h" name='pincode' type="text" maxlength="6">(6 digit number)</td>
                 </tr>
                 <tr>
                     <td width="200px">STATE</td>
-                    <td><input name='state' type="text">(max 30 characters a-z and A-Z)</td>
+                    <td><input id="i" name='state' type="text">(max 30 characters a-z and A-Z)</td>
                 </tr>
                 <tr>
                     <td width="200px">COUNTRY</td>
-                    <td><input name='country' type="text" value="India"></td>
+                    <td><input id='j' name='country' type="text" value="India"></td>
                 </tr>
                 <td></td>
-                <td align="center" style="padding-right:180px"><input type="submit" value="Submit" />
+                <td align="center" style="padding-right:180px"><input id="submit" onclick="validate();" type="submit" value="Submit" />
                 </td>
                 </tr>
 
             </table>
         </center>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+                'use strict';
+                window.addEventListener('load', function() {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+
     </form>
 </body>
 

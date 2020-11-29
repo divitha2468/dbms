@@ -49,7 +49,7 @@ def submit_adoption(request):
     )
     
     a.save()
-    return render(request, 'submitform.html')
+    return render(request, 'sample_view.html',message="done")
 def submit_donation(request):
     
     d = donation(
