@@ -20,5 +20,5 @@ from orphanage import views
 urlpatterns = [
     path('',include('orphanage.urls')),
     path('admin/', admin.site.urls),
-    path('',views.parentform,),
+    
 ]

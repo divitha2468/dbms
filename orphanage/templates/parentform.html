@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <form method="post" action='/submit_form/'>
+    <form method="post" action='/submit_parent/'>
         {% csrf_token %}
         <center>
             <h1 style="color:SlateBlue"><u>PARENT REGISTRATION FORM</u></h1>
@@ -33,6 +33,7 @@
                 </tr>
                 <tr>
                     <td width="200px">MOBILE NUMBER</td>
+                    <option value="{{parent.phno}}"></option>
                     <td><input name='phno' type="text" maxlength="10" />(10 digit number)</td>
                 </tr>
                 <tr>

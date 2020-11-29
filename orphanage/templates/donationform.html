@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <style>
+        td {
+            color: white;
+            height: 40px;
+        }
+        
+        .smallbox {
+            height: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" action='/submit_donation/'>
+        {% csrf_token %}
+        <center>
+            <h1 style="color:SlateBlue"><u>DONATION FORM</u></h1>
+            <table border="0" cellspacing="0" bgcolor="SlateBlue" style="border:1px solid blue; padding:10px">
+                <tr>
+                    <td width="200px">DONOR ID</td>
+                    <td><input name='did' type="text" /></td>
+                </tr>
+                <tr>
+                    <td width="200px">CASH/KIND</td>
+                    <td><input name='cash' type="text" maxlength="10" /></td>
+                </tr>
+                <tr>
+                    <td width="200px">AMOUNT/QUANTITY</td>
+                    <td><input name='amount' type="text" maxlength="10" /></td>
+                </tr>
+                <tr>
+                    <td width="200px">DATE OF DONATION</td>
+                    <td><input name='date' type="date"></td>
+                </tr>
+                <td></td>
+                <td align="center" style="padding-right:180px"><input type="submit" value="Submit" />
+                </td>
+                </tr>
+
+            </table>
+        </center>
+    </form>
+</body>
+
+</html>

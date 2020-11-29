@@ -3,16 +3,20 @@ import pymysql
  
 from django.db import connection
 
-cursor=connection.cursor()
-from.models import parent,adoption
+
+from.models import parent,adoption,donation
 def parentform(request):
     return render(request,"parentform.html")
+def adoptionform(request):
+    return render(request,"adoptionform.html")
+def donationform(request):
+    return render(request,"donationform.html")
 
 def sample_view(request):
     return render(request,'sample_view.html')
 
-def submit_form(request):
-    # cursor.execute("INSERT INTO orphanage_parent(firstname,lastname,email,phno,gender,address,city,pincode,state,country) VALUES ('" + request.POST.get('fname') + "','"+request.POST.get('lname')+"','"+request.POST.get('emailid')+"','"+request.POST.get('phno')+"','"+request.POST.get('gender')+"' ,'"+request.POST.get('address')+"','"+request.POST.get('city')+"','"+str(request.POST.get('pincode'))+"','"+request.POST.get('state')+"','"+request.POST.get('country')+"')")
+def submit_parent(request):
+    
     p = parent(
         firstname = request.POST['fname'],
         lastname = request.POST['lname'],
@@ -27,11 +31,14 @@ def submit_form(request):
         
 
     )
+    
     p.save()
-    return render(request, 'adoptionform.html')
-def adoption_form(request):
+    return render(request, 'submitform.html')
+def submit_adoption(request):
+    
     a = adoption(
-        parentname = request.POST['pname'],
+        parentfname = request.POST['pfname'],
+        parentlname = request.POST['plname'],
         phno= request.POST['phno'],
         email = request.POST['emailid'],     
         address= request.POST['add'], 
@@ -40,5 +47,24 @@ def adoption_form(request):
         date= request.POST['date'], 
     
     )
+    
     a.save()
-    return render(request, 'sample_view.html')
+    return render(request, 'submitform.html')
+def submit_donation(request):
+    
+    d = donation(
+        donor_id = request.POST['did'],
+        cash = request.POST['cash'],
+        amount= request.POST['amount'],
+        date= request.POST['date'], 
+    
+    )
+    
+    d.save()
+    return render(request, 'submitform.html')
+def view_parent(request):
+        query=parent.objects.raw("select * from parent")
+        print(query)
+        return render(request,'view_parent.html',{'query':query})
+
+    

@@ -16,7 +16,8 @@ class parent(models.Model):
     class meta:
         db_table="parent"
 class adoption(models.Model):
-    parentname=models.CharField(max_length=30,default=False)
+    parentfname=models.CharField(max_length=30,default=False)
+    parentlname=models.CharField(max_length=30,default=False)
     phno=models.CharField(max_length=10,default=False)
     email=models.EmailField()
     address=models.CharField(max_length=100)
@@ -25,6 +26,13 @@ class adoption(models.Model):
     date=models.DateField()
     class meta:
         db_table="adoption"
+class donation(models.Model):
+    donor_id=models.CharField(max_length=20)
+    cash=models.CharField(max_length=20)
+    amount=models.CharField(max_length=20)
+    date=models.DateField()
+    class meta:
+        db_table="donation"
 
    
     

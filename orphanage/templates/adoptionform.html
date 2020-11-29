@@ -14,14 +14,18 @@
 </head>
 
 <body>
-    <form method="POST" action='/adoption_form/'>
+    <form method="POST" action='/submit_adoption/'>
         {% csrf_token %}
         <center>
             <h1 style="color:SlateBlue"><u>ADOPTION FORM</u></h1>
             <table border="0" cellspacing="0" bgcolor="SlateBlue" style="border:1px solid blue; padding:10px">
                 <tr>
-                    <td width="200px">PARENT NAME</td>
-                    <td><input name='pname' type="text" maxlength="30" /></td>
+                    <td width="200px">PARENT FIRST NAME</td>
+                    <td><input name='pfname' type="text" maxlength="30" /></td>
+                </tr>
+                <tr>
+                    <td width="200px">PARENT LAST NAME</td>
+                    <td><input name='plname' type="text" maxlength="30" /></td>
                 </tr>
                 <tr>
                     <td width="200px">MOBILE NUMBER</td>

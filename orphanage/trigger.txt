@@ -1,0 +1,9 @@
+DELIMITER $$
+
+CREATE TRIGGER delete_orphan
+AFTER INSERT 
+ON adoption FOR EACH ROW
+BEGIN
+  DELETE FROM orphan where oid=NEW.oid
+EDN $$
+DELIMITER;
