@@ -100,6 +100,25 @@ def submit_donation(request):
     return render(request, 'submitform.html')
 
 def view_parent(request):
-         data = parent.objects.all()
-        
-         return render(request,'view_parent.html',{'messages':data})
+        data = parent.objects.all()
+        return render(request,'view_parent.html',{'messages':data})
+       
+def view_orphan(request):
+    data = orphan.objects.all()
+    return render (request, 'view_orphan.html', {'msg':data})
+
+
+def view_donor(request):
+    data = donor.objects.all()
+    return render  (request, 'view_donor.html', {'any':data})
+
+
+def view_donationhistory(request):
+    data = donation.objects.all()
+    return render (request, 'view_donationhistory.html', {'his':data})
+
+
+def view_adoptionhistory(request):
+    data = adoption.objects.all()
+    return render (request, 'view_adoptionhistory.html', {'adop':data}) 
+
