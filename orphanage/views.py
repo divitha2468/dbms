@@ -50,18 +50,13 @@ def submit_orphan(request):
         
     )
     o.save()
-<<<<<<< HEAD
 
     # cursor=connection.cursor()
     # query=cursor.execute("select * from orphanage_orphan ")
     # cursor.fetchall(query)
     # cursor.close()
     return render(request, 'submitform.html')
-=======
-    
-    
-    return render(request, 'submitform.html'  )
->>>>>>> 64234058a72e4b1e9963513c291f5165b7681150
+
 
 def submit_donor(request):
     d = donor(
@@ -104,3 +99,7 @@ def submit_donation(request):
     d.save()
     return render(request, 'submitform.html')
 
+def view_parent(request):
+         data = parent.objects.all()
+        
+         return render(request,'view_parent.html',{'messages':data})
