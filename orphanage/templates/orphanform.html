@@ -3,6 +3,9 @@
 
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -7279,11 +7282,25 @@
                                 height: 50px;
                             }
                         </style>
-                        <form method="post" action='/submit_orphan/'>
+                        <form method="post" class="needs-validation" name="Form" action='/submit_parent/' novalidate role="form">
                             {% csrf_token %}
                             <center>
                                 <h1 style="color:slateblue"><u>ORPHAN REGISTRATION FORM</u></h1>
                                 <table>
+                                    <tr>
+                                        <td width="200px">ORPHAN ID</td>
+                                        <td>
+                                            <div class="form-inline">
+                                                <input type="text" name="oid" class="form-control" id="a" required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    You must agree before submitting.
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td width="200px"> ORPHAN ID</td>
                                         <td><input name='oid' type="text" maxlength="30" /></td>
@@ -7313,6 +7330,26 @@
 
                                 </table>
                             </center>
+                            <script>
+                                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                                (function() {
+                                    'use strict';
+                                    window.addEventListener('load', function() {
+                                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                        var forms = document.getElementsByClassName('needs-validation');
+                                        // Loop over them and prevent submission
+                                        var validation = Array.prototype.filter.call(forms, function(form) {
+                                            form.addEventListener('submit', function(event) {
+                                                if (form.checkValidity() === false) {
+                                                    event.preventDefault();
+                                                    event.stopPropagation();
+                                                }
+                                                form.classList.add('was-validated');
+                                            }, false);
+                                        });
+                                    }, false);
+                                })();
+                            </script>
                         </form>
                     </div>
 
