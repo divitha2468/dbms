@@ -38,20 +38,20 @@ class donor(models.Model):
         db_table="donor"
    
 class adoption(models.Model):
-    parentid=models.IntegerField()
+    parentid=models.ForeignKey(parent,on_delete=models.CASCADE)
     parentfname=models.CharField(max_length=30)
     parentlname=models.CharField(max_length=30)
     phno=models.CharField(max_length=10)
     email=models.EmailField()
     address=models.CharField(max_length=100)
     orphanname=models.CharField(max_length=20)
-    orphanid=models.IntegerField()
+    orphanid=models.ForeignKey(orphan,on_delete=models.CASCADE)
     date=models.DateField()
     class meta:
         db_table="adoption"
 
 class donation(models.Model):
-    donorid=models.CharField(max_length=20)
+    donorid=models.ForeignKey(donor,on_delete=models.CASCADE)
     cash=models.CharField(max_length=20)
     amount=models.CharField(max_length=20)
     date=models.DateField()

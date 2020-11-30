@@ -46,6 +46,11 @@ def submit_orphan(request):
         
     )
     o.save()
+
+    # cursor=connection.cursor()
+    # query=cursor.execute("select * from orphanage_orphan ")
+    # cursor.fetchall(query)
+    # cursor.close()
     return render(request, 'submitform.html')
 
 def submit_donor(request):
@@ -76,6 +81,7 @@ def submit_adoption(request):
         date= request.POST['date'], 
     )
     a.save()
+
     return render(request, 'submitform.html')
 
 def submit_donation(request):
@@ -89,8 +95,6 @@ def submit_donation(request):
     return render(request, 'submitform.html')
 
 def view_parent(request):
-        query=parent.objects.raw("select * from parent")
-        print(query)
-        return render(request,'view_parent.html',{'query':query})
+       
 
     
