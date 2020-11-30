@@ -7282,14 +7282,14 @@
                                 height: 50px;
                             }
                         </style>
-                        <form method="post" class="needs-validation" name="Form" action='/submit_parent/' novalidate role="form">
+                        <form method="post" class="needs-validation" name="Form" action='/submit_donation/' novalidate role="form">
                             {% csrf_token %}
                             <center>
                                 <h1 style="color:slateblue"><u>DONATION FORM</u></h1>
                                 <table>
                                     <tr>
                                         <td width="200px">DONOR ID</td>
-                                        <td><input name='did' type="text" /></td>
+                                        <td><input name='did' type="number" /></td>
                                     </tr>
                                     <tr>
                                         <td width="200px">CASH/KIND</td>

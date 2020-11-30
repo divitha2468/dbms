@@ -7282,7 +7282,7 @@
                                 height: 50px;
                             }
                         </style>
-                        <form method="post" class="needs-validation" name="Form" action='/submit_parent/' novalidate role="form">
+                        <form method="post" class="needs-validation" name="Form" action='/submit_orphan/' novalidate role="form">
                             {% csrf_token %}
                             <center>
                                 <h1 style="color:slateblue"><u>ORPHAN REGISTRATION FORM</u></h1>
@@ -7291,7 +7291,7 @@
                                         <td width="200px">ORPHAN ID</td>
                                         <td>
                                             <div class="form-inline">
-                                                <input type="text" name="oid" class="form-control" id="a" required>
+                                                <input type="number" name="oid" class="form-control" id="a" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
@@ -7300,10 +7300,6 @@
                                                 </div>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="200px"> ORPHAN ID</td>
-                                        <td><input name='oid' type="text" maxlength="30" /></td>
                                     </tr>
                                     <tr>
                                         <td width="200px"> ORPHAN NAME</td>

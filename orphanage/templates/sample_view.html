@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% block sidebar %}
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -23,12 +20,12 @@
 </head>
 <style>
     /*!
-     * Bootstrap v3.0.2 by @fat and @mdo
-     * Copyright 2013 Twitter, Inc.
-     * Licensed under http://www.apache.org/licenses/LICENSE-2.0
-     *
-     * Designed and built with all the love in the world by @mdo and @fat.
-     */
+ * Bootstrap v3.0.2 by @fat and @mdo
+ * Copyright 2013 Twitter, Inc.
+ * Licensed under http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world by @mdo and @fat.
+ */
     /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
     
     article,
@@ -7231,7 +7228,7 @@
     }
 </style>
 
-<body style="background-color: MediumAquaMarine">
+<body>
     {% csrf_token %}
     <script>
         alert('{{message}}');
@@ -7253,7 +7250,7 @@
                 <li><a href="#" name="view_parent">VIEW PARENTS</a></li>
                 <li><a href="{% url 'donationform' %}">DONATION FORM</a></li>
                 <li><a href="#">DONATION HISTORY</a></li>
-                <li><a href="{% url 'adoptionform' %}" class="active">ADOPTION FORM</a></li>
+                <li><a href="{% url 'adoptionform' %}">ADOPTION FORM</a></li>
                 <li><a href="#">ADOPTION HISTORY</a></li>
             </ul>
 
@@ -7261,107 +7258,40 @@
 
         <!-- Page content -->
         <div id="page-content-wrapper">
-            <div class="main">
-                <div class="content">
-                    <div>
-                        <style>
-                            table {
-                                border: "0";
-                                border-collapse: collapse;
-                                background-color: slateblue;
-                                border: 10px solid rgb(168, 168, 168);
-                                padding: 20px;
-                            }
-                            
-                            td {
-                                color: black;
-                                height: 60px;
-                            }
-                            
-                            .smallbox {
-                                height: 50px;
-                            }
-                        </style>
-                        <form method="post" class="needs-validation" name="Form" action='/submit_adoption/' novalidate role="form">
-                            {% csrf_token %}
-                            <center>
-                                <h1 style="color:slateblue"><u>ADOPTION FORM</u></h1>
-                                <table>
-                                    <tr>
-                                        <td width="200px">PARENT ID</td>
-                                        <td><input name='pid' type="number" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="200px">PARENT FIRST NAME</td>
-                                        <td><input name='pfname' type="text" maxlength="30" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="200px">PARENT LAST NAME</td>
-                                        <td><input name='plname' type="text" maxlength="30" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="200px">MOBILE NUMBER</td>
-                                        <td><input name='phno' type="text" maxlength="10" />(10 digit number)</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="200px">EMAIL ID</td>
-                                        <td><input name='emailid' type="email" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="200px">ADDRESS</td>
-                                        <td><input name='add' textarea cols="45" rows="4"></textarea>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="200px">ORPHAN NAME</td>
-                                        <td><input name='oname' type="text" maxlength="30" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="200px">ORPHAN ID</td>
-                                        <td><input name='oid' type="number" /></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td width="200px">DATE OF ADOPTION</td>
-                                        <td><input name='date' type="date">)</td>
-                                    </tr>
-                                    <td></td>
-                                    <td align="center" style="padding-right:180px"><input type="submit" value="Submit" />
-                                    </td>
-
-                                </table>
-                            </center>
-                            <script>
-                                // Example starter JavaScript for disabling form submissions if there are invalid fields
-                                (function() {
-                                    'use strict';
-                                    window.addEventListener('load', function() {
-                                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                        var forms = document.getElementsByClassName('needs-validation');
-                                        // Loop over them and prevent submission
-                                        var validation = Array.prototype.filter.call(forms, function(form) {
-                                            form.addEventListener('submit', function(event) {
-                                                if (form.checkValidity() === false) {
-                                                    event.preventDefault();
-                                                    event.stopPropagation();
-                                                }
-                                                form.classList.add('was-validated');
-                                            }, false);
-                                        });
-                                    }, false);
-                                })();
-                            </script>
-                        </form>
+            <div class="content-header">
+                <h1>
+                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a> Simple Sidebar
+                </h1>
+            </div>
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="lead">This simple sidebar template has a hint of JavaScript to make the template responsive. It also includes Font Awesome icon fonts.</p>
                     </div>
-
+                    <div class="col-md-6">
+                        <p class="well">The template still uses the default Bootstrap rows and columns.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="well">But the full-width layout means that you wont be using containers.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="well">Three Column Example</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="well">Three Column Example</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="well">You get the idea! Do whatever you want in the page content area!</p>
+                    </div>
                 </div>
             </div>
-
         </div>
 
     </div>
 
 
 </body>
+{% endblock %}
 
 </html>
