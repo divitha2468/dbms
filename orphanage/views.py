@@ -37,6 +37,10 @@ def submit_parent(request):
     p.save()
     return render(request, 'submitform.html')
 def submit_orphan(request):
+    
+    
+
+    
     o = orphan(
         orphanid= request.POST['oid'], 
         orphanname = request.POST['oname'],
@@ -46,7 +50,9 @@ def submit_orphan(request):
         
     )
     o.save()
-    return render(request, 'submitform.html')
+    
+    
+    return render(request, 'submitform.html'  )
 
 def submit_donor(request):
     d = donor(
@@ -89,8 +95,10 @@ def submit_donation(request):
     return render(request, 'submitform.html')
 
 def view_parent(request):
-        query=parent.objects.raw("select * from parent")
-        print(query)
-        return render(request,'view_parent.html',{'query':query})
+         data = parent.objects.all()
+        
+         return render(request,'view_parent.html',{'messages':data})
+       
+
 
     

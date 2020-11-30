@@ -14,4 +14,5 @@ urlpatterns=[
     path('submit_donor/', views.submit_donor, name='submit_donor'),
     path('donorform/', views.donorform, name='donorform'),
     path('orphanform/',views.orphanform,name='orphanform'),
+    
 ]
