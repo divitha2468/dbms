@@ -29,13 +29,8 @@
                 <thead>
                     <tr>
                         <th>Parent ID</th>
-                        <th>Parent First Name</th>
-                        <th>Parent Last Name</th>
-                        <th>Phone Number</th>
-                        <th>Parent Email</th>
-                        <th>Parent Address</th>
-                        <th>Orphan Name</th>
                         <th>Orphan ID</th>
+                        <th>Orphan Name</th>
                         <th>Date of Adoption</th>
                     </tr>
                 </thead>
@@ -43,13 +38,8 @@
                     {% for i in adop%}
                     <tr>
                         <td> {{i.parentid}} </td>
-                        <td> {{i.parentfname}} </td>
-                        <td> {{i.parentlname}} </td>
-                        <td> {{i.phno}} </td>
-                        <td> {{i.email}} </td>
-                        <td> {{i.address}} </td>
-                        <td> {{i.orphanname}} </td>
                         <td> {{i.orphanid}} </td>
+                        <td> {{i.orphanname}} </td>
                         <td> {{i.date}} </td>
 
                     </tr>

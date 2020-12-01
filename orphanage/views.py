@@ -22,7 +22,7 @@ def sample_view(request):
 
 def submit_parent(request):
     cursor=connection.cursor()
-    cursor.execute("INSERT INTO orphanage_parent(parentid,firstname,lastname,email,phno,gender,address,city,pincode,state,country) VALUES ('" + str(request.POST.get('pid')) + "','" + str(request.POST.get('fname')) + "','"+str(request.POST.get('lname'))+"','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('gender'))+"' ,'"+str(request.POST.get('address'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('pincode'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
+    cursor.execute("INSERT INTO orphanage_parent(firstname,lastname,email,phno,gender,address,city,pincode,state,country) VALUES ('"+ str(request.POST.get('fname')) + "','"+str(request.POST.get('lname'))+"','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('gender'))+"' ,'"+str(request.POST.get('address'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('pincode'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
     # p = parent(
     #     parentid=request.POST['pid'],
     #     firstname = request.POST['fname'],
@@ -50,7 +50,7 @@ def submit_orphan(request):
     # o.save()
 
     cursor=connection.cursor()
-    query=cursor.execute("INSERT INTO orphanage_orphan(orphanid,orphanname,age,gender,dateofbirth) VALUES ('" + str(request.POST.get('oid')) + "','"+str(request.POST.get('oname'))+"','"+str(request.POST.get('age'))+"','"+str(request.POST.get('gender'))+"' ,'"+str(request.POST.get('dob'))+"')")
+    query=cursor.execute("INSERT INTO orphanage_orphan(orphanname,gender,dateofbirth) VALUES ('" +str(request.POST.get('oname'))+"','"+str(request.POST.get('gender'))+"' ,'"+str(request.POST.get('dob'))+"')")
     return render(request, 'submitform.html')
 
 
@@ -68,7 +68,7 @@ def submit_donor(request):
     # )
     # d.save()
     cursor=connection.cursor()
-    cursor.execute("INSERT INTO orphanage_donor(donorid,donorname,donor_phno,donor_email,address,city,state,country) VALUES ('" + str(request.POST.get('did')) + "','" + str(request.POST.get('dname')) + "','"+str(request.POST.get('dphno'))+"','"+str(request.POST.get('demailid'))+"','"+str(request.POST.get('dadd'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
+    cursor.execute("INSERT INTO orphanage_donor(donorname,donor_phno,donor_email,address,city,state,country) VALUES ('" + str(request.POST.get('dname')) + "','"+str(request.POST.get('dphno'))+"','"+str(request.POST.get('demailid'))+"','"+str(request.POST.get('dadd'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
     return render(request, 'submitform.html')
 
 def submit_adoption(request):
@@ -85,7 +85,7 @@ def submit_adoption(request):
     # )
     # a.save()
     cursor=connection.cursor()
-    cursor.execute("INSERT INTO orphanage_adoption(parentid,parentfname,parentlname,phno,email,address,orphanname,orphanid,date) VALUES ('" + str(request.POST.get('pid')) + "','" + str(request.POST.get('pfname')) + "','" + str(request.POST.get('plname')) + "','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('add'))+"','"+str(request.POST.get('oname'))+"','"+str(request.POST.get('oid'))+"','"+str(request.POST.get('date'))+"')")
+    cursor.execute("INSERT INTO orphanage_adoption(parent,orphan,orphanname,date) VALUES ('" + str(request.POST.get('pid')) + "','"+str(request.POST.get('oid'))+"','"+str(request.POST.get('oname'))+"','"+str(request.POST.get('date'))+"')")
     return render(request, 'submitform.html')
 
 def submit_donation(request):
@@ -97,7 +97,7 @@ def submit_donation(request):
     # )
     # d.save()
     cursor=connection.cursor()
-    query=cursor.execute("INSERT INTO orphanage_donation(donorid,cash,amount,date) VALUES ('" + str(request.POST.get('did')) + "','"+str(request.POST.get('cash'))+"','"+str(request.POST.get('amount'))+"','"+str(request.POST.get('date'))+"')")
+    query=cursor.execute("INSERT INTO orphanage_donation(donor,cash,amount,date) VALUES ('" + str(request.POST.get('did')) + "','"+str(request.POST.get('cash'))+"','"+str(request.POST.get('amount'))+"','"+str(request.POST.get('date'))+"')")
     return render(request, 'submitform.html')
 
 def view_parent(request):

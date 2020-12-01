@@ -1,33 +1,35 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-    
-        <title>Starter Template for Bootstrap</title>
-    
-        <!-- Bootstrap core CSS -->
-        <link href="templates/css/bootstrap.css" rel="stylesheet">
-    
-        <!-- Add custom CSS here -->
-        <link href="templates/css/simple-sidebar.css" rel="stylesheet">
-        <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
-    
-    </head>
-    <body>
-        
-        <div class="row">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="templates/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="templates/css/simple-sidebar.css" rel="stylesheet">
+    <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+    <div class="row">
         <div class="col-md-12">
-            <h2 class = "text-center"> Parents list</h2>
+            <h2 class="text-center"> Parents list</h2>
             <h4><em> Total : {{messages|length}}</em></h4>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>ID</th>
+
                         <th>First Name</th>
                         <th>Last name</th>
                         <th>Email</th>
@@ -42,24 +44,24 @@
                 </thead>
                 <tbody>
                     {% for i in messages%}
-                        <tr>
-                            <td> {{i.parentid}} </td>
-                            <td> {{i.firstname}} </td>
-                            <td> {{i.lastname}}  </td>
-                            <td> {{i.email}} </td>
-                            <td> {{i.phno}} </td>
-                            <td> {{i.gender}} </td>
-                            <td> {{i.address}} </td>
-                            <td>{{i.city}} </td>
-                            <td> {{i.pincode}} </td>
-                            <td> {{i.state}}</td>
-                            <td> {{i.country}} </td>
-                        </tr>
+                    <tr>
+
+                        <td> {{i.firstname}} </td>
+                        <td> {{i.lastname}} </td>
+                        <td> {{i.email}} </td>
+                        <td> {{i.phno}} </td>
+                        <td> {{i.gender}} </td>
+                        <td> {{i.address}} </td>
+                        <td>{{i.city}} </td>
+                        <td> {{i.pincode}} </td>
+                        <td> {{i.state}}</td>
+                        <td> {{i.country}} </td>
+                    </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
-        </div>
-    </body>
-    
-    </html>
+    </div>
+</body>
+
+</html>
