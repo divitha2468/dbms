@@ -7288,11 +7288,25 @@
                                 <table>
                                     <tr>
                                         <td width="200px">PARENT ID</td>
-                                        <td><input name='pid' type="number" /></td>
+                                        <td>
+                                            <select> 
+                                                <option  selected disabled="true" >--name--</option>
+                                                {% for data in messages %}
+                                                <option value="{{data.id}}">{{data.parent_id}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="200px">ORPHAN ID</td>
-                                        <td><input name='oid' type="number" /></td>
+                                        <td>
+                                            <select> 
+                                                <option  selected disabled="true" >--name--</option>
+                                                {% for data in msg %}
+                                                <option value="{{data.id}}">{{data.id}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="200px">ORPHAN NAME</td>

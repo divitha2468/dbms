@@ -1,5 +1,6 @@
 from django.urls import path
 
+
 from . import views
 urlpatterns=[
     path('parentform/',views.parentform,name='parentform'),
@@ -17,5 +18,8 @@ urlpatterns=[
     path('view_orphan/', views.view_orphan, name="view_orphan"),
     path('view_donor/', views.view_donor, name="view_donor"),
     path('view_donationhistory/', views.view_donationhistory, name="view_donationhistory"),
-    path('view_adoptionhistory/', views.view_adoptionhistory, name="view_adoptionhistory")
+    path('view_adoptionhistory/', views.view_adoptionhistory, name="view_adoptionhistory"),
+    path('login/', views.login, name="login"),
+    path('submit_login/', views.submit_login, name="submit_login"),
+   
 ]

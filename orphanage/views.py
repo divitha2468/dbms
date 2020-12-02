@@ -1,8 +1,16 @@
 from django.shortcuts import render
 import pymysql
- 
+# import pyrebase
+# from .pyrebase import initialize_app
+# from Crypto.PublicKey import RSA
 from django.db import connection
+
 from.models import parent,donor,orphan,adoption,donation
+  
+def login(request):
+    return render(request,"login.html")
+def submit_login(request):
+    return render(request,"sample_view.html")
 def parentform(request):
     return render(request,"parentform.html")
 
@@ -122,4 +130,6 @@ def view_donationhistory(request):
 def view_adoptionhistory(request):
     data = adoption.objects.all()
     return render (request, 'view_adoptionhistory.html', {'adop':data}) 
+
+
 

@@ -4,6 +4,6 @@ CREATE TRIGGER delete_orphan
 AFTER INSERT 
 ON adoption FOR EACH ROW
 BEGIN
-  DELETE FROM orphan where orphanid=NEW.orphanid
+  DELETE FROM orphan where orphan_id=NEW.orphan_id
 EDN $$
 DELIMITER;

@@ -15,6 +15,8 @@ class parent(models.Model):
     country=models.CharField(max_length=20)
     class meta:
         db_table="parent"
+    def __str__(self):
+        return self.firstname
 
 class orphan(models.Model):
     #orphanid=models.IntegerField(unique=True)
