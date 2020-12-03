@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'orphanage',
-    
+    'crispy_forms',
    
 ]
 
@@ -112,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
+
   
 )
 # Internationalization
@@ -129,7 +130,7 @@ USE_TZ = True
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_REDIRECT_URL = 'orphanage:sample_view'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 

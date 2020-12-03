@@ -2,14 +2,15 @@ from django.urls import path
 
 
 from . import views
+app_name="orphanage"
 urlpatterns=[
     path('parentform/',views.parentform,name='parentform'),
-    path('', views.sample_view, name='sample_view'),
+    path('sample_view', views.sample_view, name='sample_view'),
     path('submit_parent/', views.submit_parent, name='submit_parent'),
     path('adoptionform/', views.adoptionform, name='adoptionform'),
     path('donationform/', views.donationform, name='donationform'),
     path('submit_adoption/', views.submit_adoption, name='submit_adoption'),
-    path('submit_donation/', views.submit_donation, name='submit_donation'),
+    path('submit_donation/<int:id>/', views.submit_donation, name='submit_donation'),
     path('view_parent/',views.view_parent,name="view_parent"),
     path('submit_orphan/', views.submit_orphan, name='submit_orphan'),
     path('submit_donor/', views.submit_donor, name='submit_donor'),
@@ -19,7 +20,9 @@ urlpatterns=[
     path('view_donor/', views.view_donor, name="view_donor"),
     path('view_donationhistory/', views.view_donationhistory, name="view_donationhistory"),
     path('view_adoptionhistory/', views.view_adoptionhistory, name="view_adoptionhistory"),
-    path('login/', views.login, name="login"),
-    path('submit_login/', views.submit_login, name="submit_login"),
-   
+    # path('login/', views.login, name="login"),
+    # path('submitform/', views.submitform, name="submitform"),
+    path('',views.login_request,name="login"),
+    path("register/",views.register_request,name="register"),
+    path("logout/",views.logout_request,name="logout")
 ]

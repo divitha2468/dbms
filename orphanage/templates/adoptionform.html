@@ -7243,18 +7243,19 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a href="#">ORPHANAGE</a></li>
-                <li><a href="{% url 'sample_view' %}">HOME</a></li>
-                <li><a href="{% url 'orphanform' %}">ADD ORPHAN</a></li>
-                <li><a href="{% url 'view_orphan' %}">VIEW ORPHANS</a></li>
-                <li><a href="{% url 'donorform' %}">ADD DONOR</a></li>
-                <li><a href="{% url 'view_donor' %}">VIEW DONORS</a></li>
-                <li><a href="{% url 'parentform' %}" class="active">ADD PARENT</a></li>
-                <li><a href="{% url 'view_parent' %}">VIEW PARENTS</a></li>
-                <li><a href="{% url 'donationform' %}">DONATION FORM</a></li>
-                <li><a href="{% url 'view_donationhistory' %}">DONATION HISTORY</a></li>
-                <li><a href="{% url 'adoptionform' %}">ADOPTION FORM</a></li>
-                <li><a href="{% url 'view_adoptionhistory' %}">ADOPTION HISTORY</a></li>
+                <li><a href="/sample_view">HOME</a></li>
+                <li><a href="/orphanform">ADD ORPHAN</a></li>
+                <li><a href="/view_orphan">VIEW ORPHANS</a></li>
+                <li><a href="/donorform">ADD DONOR</a></li>
+                <li><a href="/view_donor">VIEW DONORS</a></li>
+                <li><a href="/parentform">ADD PARENT</a></li>
+                <li><a href="/view_parent">VIEW PARENTS</a></li>
+                <li><a href="/donationform">DONATION FORM</a></li>
+                <li><a href="/view_donationhistory">DONATION HISTORY</a></li>
+                <li><a href="/adoptionform" class="active">ADOPTION FORM</a></li>
+                <li><a href="/view_adoptionhistory">ADOPTION HISTORY</a></li>
             </ul>
+
 
         </div>
 
@@ -7287,34 +7288,30 @@
                                 <h1 style="color:slateblue"><u>ADOPTION FORM</u></h1>
                                 <table>
                                     <tr>
-                                        <td width="200px">PARENT ID</td>
+                                        <td width="200px">PARENT NAME</td>
                                         <td>
                                             <select> 
                                                 <option  selected disabled="true" >--name--</option>
-                                                {% for data in messages %}
-                                                <option value="{{data.id}}">{{data.parent_id}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="200px">ORPHAN ID</td>
-                                        <td>
-                                            <select> 
-                                                <option  selected disabled="true" >--name--</option>
-                                                {% for data in msg %}
-                                                <option value="{{data.id}}">{{data.id}}</option>
+                                                {% for data in parent_data %}
+                                                <option value="{{data.id}}">{{data.id}}---{{data.firstname}}</option>
                                                 {% endfor %}
                                             </select>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="200px">ORPHAN NAME</td>
-                                        <td><input name='oname' type="text" maxlength="30" /></td>
+                                        <td>
+                                            <select> 
+                                                <option  selected disabled="true" >--name--</option>
+                                                {% for data in orphan_data %}
+                                                <option value="{{data.id}}">{{data.id}}--{{data.orphanname}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="200px">DATE OF ADOPTION</td>
-                                        <td><input name='date' type="date">)</td>
+                                        <td><input name='date' type="date"></td>
                                     </tr>
                                     <td></td>
                                     <td align="center" style="padding-right:180px"><input type="submit" value="Submit" />

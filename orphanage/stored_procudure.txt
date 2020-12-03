@@ -1,0 +1,4 @@
+ Create Procedure delete_orphan()
+    DELETE FROM orphanage_orphan
+    WHERE id=orphan_id;
+    

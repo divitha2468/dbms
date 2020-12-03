@@ -28,18 +28,16 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Parent ID</th>
-                        <th>Orphan ID</th>
-                        <th>Orphan Name</th>
+                        <th>Parent NAME</th>
+                        <th>Orphan NAME</th>
                         <th>Date of Adoption</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for i in adop%}
                     <tr>
-                        <td> {{i.parentid}} </td>
-                        <td> {{i.orphanid}} </td>
-                        <td> {{i.orphanname}} </td>
+                        <td> {{i.parent_id}} </td>
+                        <td> {{i.orphan_id}} </td>
                         <td> {{i.date}} </td>
 
                     </tr>
