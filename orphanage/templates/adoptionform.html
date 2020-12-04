@@ -7290,7 +7290,7 @@
                                     <tr>
                                         <td width="200px">PARENT NAME</td>
                                         <td>
-                                            <select> 
+                                            <select name="parent_id"> 
                                                 <option  selected disabled="true" >--name--</option>
                                                 {% for data in parent_data %}
                                                 <option value="{{data.id}}">{{data.id}}---{{data.firstname}}</option>
@@ -7301,7 +7301,7 @@
                                     <tr>
                                         <td width="200px">ORPHAN NAME</td>
                                         <td>
-                                            <select> 
+                                            <select name="orphan_id"> 
                                                 <option  selected disabled="true" >--name--</option>
                                                 {% for data in orphan_data %}
                                                 <option value="{{data.id}}">{{data.id}}--{{data.orphanname}}</option>

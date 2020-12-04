@@ -5,7 +5,7 @@ from . import views
 app_name="orphanage"
 urlpatterns=[
     path('parentform/',views.parentform,name='parentform'),
-    path('sample_view', views.sample_view, name='sample_view'),
+    path('sample_view/', views.sample_view, name='sample_view'),
     path('submit_parent/', views.submit_parent, name='submit_parent'),
     path('adoptionform/', views.adoptionform, name='adoptionform'),
     path('donationform/', views.donationform, name='donationform'),

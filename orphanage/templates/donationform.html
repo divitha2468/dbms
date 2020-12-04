@@ -7289,10 +7289,10 @@
                                 <table>
                                     <td width="200px">DONOR ID</td>
                                     <td>
-                                        <select name="did"> 
+                                        <select name="id"> 
                                             <option  selected disabled="true" >--name--</option>
                                             {% for data in donor_data %}
-                                            <option value="{{data.id}}">{{data.id}}--{{data.donorname}}</option>
+                                            <option value="{{data.id}}">{{data.id}}---{{data.donorname}}</option>
                                             {% endfor %}
                                         </select>
                                     </td>
