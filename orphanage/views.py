@@ -80,7 +80,7 @@ def sample_view(request):
 
 def submit_parent(request):
     cursor=connection.cursor()
-    cursor.execute("INSERT INTO orphanage_parent(firstname,lastname,email,phno,gender,address,city,pincode,state,country) VALUES ('"+ str(request.POST.get('fname')) + "','"+str(request.POST.get('lname'))+"','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('gender'))+"' ,'"+str(request.POST.get('address'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('pincode'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
+    cursor.execute("INSERT INTO orphanage_parent(firstname,lastname,email,phno,gender,address,city,state,country) VALUES ('"+ str(request.POST.get('fname')) + "','"+str(request.POST.get('lname'))+"','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('gender'))+"' ,'"+str(request.POST.get('address'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
     # p = parent(
     #     parentid=request.POST['pid'],
     #     firstname = request.POST['fname'],
@@ -149,7 +149,7 @@ def submit_adoption(request):
 
 def submit_donation(request,id):
     d = donation(
-        donor=donor.objects.get(id=id),
+        donor_id=donor.objects.get(id=id),
         cash = request.POST['cash'],
         amount= request.POST['amount'],
         date= request.POST['date'], 

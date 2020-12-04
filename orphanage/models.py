@@ -10,7 +10,6 @@ class parent(models.Model):
     gender=models.CharField(max_length=10)
     address=models.CharField(max_length=100)
     city=models.CharField(max_length=20)
-    pincode=models.IntegerField()
     state=models.CharField(max_length=20)
     country=models.CharField(max_length=20)
     class meta:
