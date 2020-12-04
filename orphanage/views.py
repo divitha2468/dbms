@@ -149,7 +149,7 @@ def submit_adoption(request):
 
 def submit_donation(request,id):
     d = donation(
-        donor_id=donor.objects.get(id=id),
+        donor=donor.objects.get(id=id),
         cash = request.POST['cash'],
         amount= request.POST['amount'],
         date= request.POST['date'], 

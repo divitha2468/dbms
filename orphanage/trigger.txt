@@ -7,3 +7,8 @@ BEGIN
   DELETE FROM orphan where orphan_id=NEW.orphan_id
 EDN $$
 DELIMITER;
+
+
+
+
+CREATE TRIGGER deleteorphan AFTER INSERT ON ORPHANAGE_ADOPTION FOR EACH ROW EXECUTE PROCEDURE delete_orphan();

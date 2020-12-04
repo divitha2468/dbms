@@ -41,7 +41,6 @@ class donor(models.Model):
 class adoption(models.Model):
     parent=models.ForeignKey(parent,on_delete=models.CASCADE)
     orphan=models.ForeignKey(orphan,on_delete=models.CASCADE)
-    orphanname=models.CharField(max_length=30)
     date=models.DateField()
     class meta:
         db_table="adoption"
