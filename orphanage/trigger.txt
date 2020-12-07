@@ -1,19 +1,5 @@
-DELIMITER $$
-
-CREATE TRIGGER delete_orphan
-AFTER INSERT 
-ON orphanage_adoption FOR EACH ROW
-DELETE FROM orphanage_orphan where orphan_id=new.orphan_id
-EDN $$
-DELIMITER;
-
-create trigger upd_check after insert on orphanage_adoption
-for each ROW
-update orphanage_orphan 
-set adopted=1 where id=new.orphan_id;
-
 
 CREATE TRIGGER upd_check AFTER INSERT ON ORPHANAGE_ADOPTION FOR EACH ROW call adopted(new.orphan_id);
 
 
-CREATE TRIGGER upd_check AFTER INSERT ON ORPHANAGE_ADOPTION FOR EACH ROW call adopted();
+
