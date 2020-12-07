@@ -55,7 +55,7 @@ def parentform(request):
 
 def adoptionform(request):
     parent_data = parent.objects.all()
-    orphan_data=orphan.objects.all()
+    orphan_data=orphan.objects.filter(adopted=0)
     context = {
         'parent_data': parent_data,
         'orphan_data':orphan_data
@@ -108,7 +108,7 @@ def submit_orphan(request):
     # o.save()
 
     cursor=connection.cursor()
-    query=cursor.execute("INSERT INTO orphanage_orphan(orphanname,gender,dateofbirth) VALUES ('" +str(request.POST.get('oname'))+"','"+str(request.POST.get('gender'))+"' ,'"+str(request.POST.get('dob'))+"')")
+    query=cursor.execute("INSERT INTO orphanage_orphan(orphanname,gender,adopted,dateofbirth) VALUES ('" +str(request.POST.get('oname'))+"','"+str(request.POST.get('gender'))+"' ,'" +str(request.POST.get('adopted'))+"','"+str(request.POST.get('dob'))+"')")
     return render(request,'orphanage/submitform.html')
 
 
@@ -133,7 +133,7 @@ def submit_donor(request):
 def submit_adoption(request):
     print(request.POST)
     a = adoption(
-        parent=parent.objects.get(id=request.POST['parent_id']), # where is the form that submits to this def
+        parent=parent.objects.get(id=request.POST['parent_id']),
         orphan=orphan.objects.get(id=request.POST['orphan_id']),
         date= request.POST['date'], 
     )
@@ -159,7 +159,7 @@ def view_parent(request):
         return render(request,'view_parent.html',{'messages':data})
        
 def view_orphan(request):
-    data = orphan.objects.all()
+    data = orphan.objects.filter(adopted=0)
     return render (request, 'view_orphan.html', {'msg':data})
 
 

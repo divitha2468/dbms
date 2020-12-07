@@ -20,6 +20,7 @@ class orphan(models.Model):
     #orphanid=models.IntegerField(unique=True)
     orphanname=models.CharField(max_length=20)
     gender=models.CharField(max_length=10)
+    adopted=models.IntegerField(default=0)
     # age=models.IntegerField()
     dateofbirth=models.DateField()
     class meta:
