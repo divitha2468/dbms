@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'orphanage',
     'crispy_forms',
+    # "social_django"
    
 ]
 
@@ -66,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'social_django.context_processors.backends', # this
+                # 'social_django.context_processors.login_redirect',
                
             ],
         },
@@ -111,10 +114,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 AUTHENTICATION_BACKENDS = (
+    # 'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 
   
 )
+# SOCIAL_AUTH_GOOGLE_OUTH2_KEY='669500903341-7fd5sk19hm5mioulp2tpc6d9n197dt0s.apps.googleusercontent.com'
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='uaySw5ZkC_TMDrge1Vm5FIqP'
+# SOCIAL_AUTH_URL_NAMESPACE='social'
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -130,7 +137,7 @@ USE_TZ = True
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'orphanage:sample_view'
+LOGIN_REDIRECT_URL = 'orphanage/sample_view.html'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 

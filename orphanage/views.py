@@ -1,31 +1,30 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from .forms import NewUserForm
-from django.contrib.auth import logout,authenticate,login as auth_login #add this
+# from .forms import NewUserForm
+from django.contrib.auth import logout,authenticate,login as auth_login#add this
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm #add this
 import pymysql
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 # import pyrebase
 # from .pyrebase import initialize_app
 # from Crypto.PublicKey import RSA
 from django.db import connection
 
 from.models import parent,donor,orphan,adoption,donation
-def register_request(request):
-	if request.method == "POST":
-		form = NewUserForm(request.POST)
-		if form.is_valid():
-			user = form.save()
-			auth_login(request, user)
-			messages.success(request, "Registration successful." )
-			return redirect("orphanage:sample_view")
-		messages.error(request, "Unsuccessful registration. Invalid information.")
-	form = NewUserForm
-	return render (request=request, template_name="orphanage/register.html", context={"register_form":form})
-
-# def login(request):
-#     return render(request,"login.html")
-def login_request(request):
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user=form.save()
+            auth_login(request,user)
+            return redirect('orphanage:sample_view')
+    else:
+        form = UserCreationForm()
+    return render(request, 'orphanage/register.html', {'form': form})  
+def login(request):
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
@@ -42,8 +41,8 @@ def login_request(request):
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	return render(request=request,template_name="orphanage/login.html", context={"login_form":form})
-# def sample_view(request):
-#     return render(request,"sample_view.html")
+def sample_view(request):
+    return render(request,"sample_view.html")
 def logout_request(request):
     logout(request)
     messages.info(request,"you have successfully loggedout")
@@ -74,7 +73,6 @@ def orphanform(request):
 
 def donorform(request):
     return render(request,"donorform.html")
-
 def sample_view(request):
     return render(request,'orphanage/sample_view.html')
 
