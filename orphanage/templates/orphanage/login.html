@@ -1,18 +1,28 @@
-{% block content %} {% load crispy_forms_tags %}
-
-<!--Login-->
-<div class="container py-5">
-    <h1>Login</h1>
-    <form method="POST">
-        {% csrf_token %} {{ login_form|crispy }}
-        <button class="btn btn-primary" type="submit">Login</button>
-    </form>
-    <p class="text-center">no acount<a href='/register'>create an account</a>.</p>
-</div>
-{% endblock %}
 <!-- <a href="Google+">login</
 <h1>Log In</h1>
 <form action="{% url 'orphanage:login' %}" method="post">
     {% csrf_token %} {{ form }}
     <input type="submit" value="Log In">
 </form> -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> {% load static %}
+
+
+    <title>LOGIN</title>
+</head>
+
+<body class="container mt-5" bgcolor="blue">
+    {% block content %}
+    <h1>Log In</h1>
+    <form action="{% url 'orphanage:login' %}" method="post">
+        {% csrf_token %} {{ form }}
+        <input type="submit" value="Log In">
+    </form>
+    <p class="text-center">no acount<a href='/register'>create an account</a>.</p>
+    {% endblock content %}
+</body>
+
+</html>

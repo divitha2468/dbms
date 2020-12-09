@@ -20,27 +20,37 @@ def register(request):
         if form.is_valid():
             user=form.save()
             auth_login(request,user)
-            return redirect('orphanage:sample_view')
+            return redirect('orphanage:login')
     else:
         form = UserCreationForm()
     return render(request, 'orphanage/register.html', {'form': form})  
+# def login(request):
+# 	if request.method == "POST":
+# 		form = AuthenticationForm(request, data=request.POST)
+# 		if form.is_valid():
+# 			username = form.cleaned_data.get('username')
+# 			password = form.cleaned_data.get('password')
+# 			user = authenticate(username=username, password=password)
+# 			if user is not None:
+# 				auth_login(request, user)
+# 				messages.info(request, f"You are now logged in as {username}.")
+# 				return render(request,template_name="orphanage/sample_view.html",context=None)
+# 			else:
+# 				messages.error(request,"Invalid username or password.")
+# 		else:
+# 			messages.error(request,"Invalid username or password.")
+# 	form = AuthenticationForm()
+# 	return render(request=request,template_name="orphanage/login.html", context={"login_form":form})
 def login(request):
-	if request.method == "POST":
-		form = AuthenticationForm(request, data=request.POST)
-		if form.is_valid():
-			username = form.cleaned_data.get('username')
-			password = form.cleaned_data.get('password')
-			user = authenticate(username=username, password=password)
-			if user is not None:
-				auth_login(request, user)
-				messages.info(request, f"You are now logged in as {username}.")
-				return render(request,template_name="orphanage/sample_view.html",context=None)
-			else:
-				messages.error(request,"Invalid username or password.")
-		else:
-			messages.error(request,"Invalid username or password.")
-	form = AuthenticationForm()
-	return render(request=request,template_name="orphanage/login.html", context={"login_form":form})
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            auth_login(request, user)
+            return redirect('orphanage:sample_view')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'orphanage/login.html', {'form': form})
 def sample_view(request):
     return render(request,"sample_view.html")
 def logout_request(request):

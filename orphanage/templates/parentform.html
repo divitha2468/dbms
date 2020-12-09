@@ -7302,8 +7302,22 @@
                                     </tr>
                                     <tr>
                                         <td width="200px">LAST NAME</td>
-                                        <td><input id="b" name='lname' type="text" maxlength="30" />(max 30 characters a-z and A-Z)</td>
+                                        <td>
+                                            <div class="form-inline">
+                                                <input type="text" name="lname" class="form-control" id="b" required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    You must agree before submitting.
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
+                                    <!-- <tr>
+                                        <td width="200px">LAST NAME</td>
+                                        <td><input id="b" name='lname' type="text" maxlength="30" />(max 30 characters a-z and A-Z)</td>
+                                    </tr> -->
                                     <tr>
                                         <td width="200px">EMAIL ID</td>
                                         <td><input id="c" name='emailid' type="email" /></td>
