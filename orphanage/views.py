@@ -14,16 +14,16 @@ from django.contrib.auth.decorators import login_required
 from django.db import connection
 
 from.models import parent,donor,orphan,adoption,donation
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user=form.save()
-            auth_login(request,user)
-            return redirect('orphanage:login')
-    else:
-        form = UserCreationForm()
-    return render(request, 'orphanage/register.html', {'form': form})  
+# def register(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user=form.save()
+#             auth_login(request,user)
+#             return redirect('orphanage:login')
+#     else:
+#         form = UserCreationForm()
+#     return render(request, 'orphanage/register.html', {'form': form})  
 # def login(request):
 # 	if request.method == "POST":
 # 		form = AuthenticationForm(request, data=request.POST)

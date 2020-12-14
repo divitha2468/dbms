@@ -23,6 +23,6 @@ urlpatterns=[
     #path('', views.login, name="login"),
     # path('submitform/', views.submitform, name="submitform"),
     path('',views.login,name="login"),
-    path("register/",views.register,name="register"),
+    # path("register/",views.register,name="register"),
     path("logout/",views.logout_request,name="logout")
 ]
