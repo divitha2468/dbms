@@ -8,7 +8,17 @@ class parent(models.Model):
     email=models.EmailField()
     phno=models.CharField(max_length=10)
     gender=models.CharField(max_length=10)
-    address=models.CharField(max_length=100)
+    pincode=models.IntegerField(default=0)
+    # address=models.CharField(max_length=100)
+    # city=models.CharField(max_length=20)
+    # state=models.CharField(max_length=20)
+    # country=models.CharField(max_length=20)
+    class meta:
+        db_table="parent"
+class pdetails(models.Model):
+
+    pincode=models.IntegerField()
+    h_no=models.CharField(max_length=100)
     city=models.CharField(max_length=20)
     state=models.CharField(max_length=20)
     country=models.CharField(max_length=20)
