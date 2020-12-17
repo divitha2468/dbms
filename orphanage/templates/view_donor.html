@@ -29,28 +29,30 @@
                 <thead>
                     <tr>
 
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Phone Number</th>
                         <th>Email</th>
-                        <th>Address</th>
-                        <th>City</th>
+                        <th>PINCODE</th>
+                        <!-- <th>City</th>
                         <th>State</th>
-                        <th>Country</th>
+                        <th>Country</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     {% for i in any%}
                     <tr>
 
+                        <td> {{i.id}} </td>
                         <td> {{i.donorname}} </td>
-                        <td> {{i.donor_phno}} </td>
-                        <td> {{i.donor_email}} </td>
+                        <td> {{i.phno}} </td>
+                        <td> {{i.email}} </td>
 
-                        <td> {{i.address}} </td>
-                        <td>{{i.city}} </td>
+                        <td> {{i.pincode}} </td>
+                        <!-- <td>{{i.city}} </td>
 
                         <td> {{i.state}}</td>
-                        <td> {{i.country}} </td>
+                        <td> {{i.country}} </td> -->
                     </tr>
                     {% endfor %}
                 </tbody>

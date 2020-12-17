@@ -3,12 +3,12 @@ from django.db import models
 # Create your models here.
 class parent(models.Model):
     #parentid=models.IntegerField(unique=True)
-    firstname=models.CharField(max_length=20)
-    lastname=models.CharField(max_length=20)
+    # firstname=models.CharField(max_length=20)
+    parentname=models.CharField(max_length=20)
     email=models.EmailField()
     phno=models.CharField(max_length=10)
     gender=models.CharField(max_length=10)
-    pincode=models.IntegerField(default=0)
+    pincode=models.IntegerField()
     # address=models.CharField(max_length=100)
     # city=models.CharField(max_length=20)
     # state=models.CharField(max_length=20)
@@ -23,7 +23,7 @@ class pdetails(models.Model):
     state=models.CharField(max_length=20)
     country=models.CharField(max_length=20)
     class meta:
-        db_table="parent"
+        db_table="pdetails"
     
 
 class orphan(models.Model):
@@ -39,14 +39,24 @@ class orphan(models.Model):
 class donor(models.Model):
      #donorid=models.IntegerField(unique=True)
      donorname=models.CharField(max_length=30)
-     donor_phno=models.CharField(max_length=10)
-     donor_email=models.EmailField()
-     address=models.CharField(max_length=100)
+     phno=models.CharField(max_length=10)
+     email=models.EmailField()
+     pincode=models.IntegerField()
+    #  city=models.CharField(max_length=20)
+    #  state=models.CharField(max_length=20)
+    #  country=models.CharField(max_length=20)
+     class meta:
+        db_table="donor"
+class ddetails(models.Model):
+     #donorid=models.IntegerField(unique=True)
+     pincode=models.IntegerField()
+     h_no=models.CharField(max_length=100)
      city=models.CharField(max_length=20)
      state=models.CharField(max_length=20)
      country=models.CharField(max_length=20)
      class meta:
-        db_table="donor"
+        db_table="ddetails"
+
    
 class adoption(models.Model):
     parent=models.ForeignKey(parent,on_delete=models.CASCADE)
@@ -58,8 +68,8 @@ class adoption(models.Model):
 
 class donation(models.Model):
     donor=models.ForeignKey(donor,on_delete=models.CASCADE)
-    cash=models.CharField(max_length=20)
-    amount=models.CharField(max_length=20)
+    cash=models.IntegerField()
+    kind=models.CharField(max_length=20)
     date=models.DateField()
     class meta:
         db_table="donation"

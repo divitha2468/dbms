@@ -30,30 +30,32 @@
                 <thead>
                     <tr>
 
-                        <th>First Name</th>
-                        <th>Last name</th>
+
+                        <th>PARENT ID</th>
+                        <th>PARENT name</th>
                         <th>Email</th>
                         <th>Mobile Number</th>
                         <th>Gender</th>
-                        <th>Address</th>
-                        <th>City</th>
+                        <th>PINCODE</th>
+                        <!-- <th>City</th>
                         <th>State</th>
-                        <th>Country</th>
+                        <th>Country</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     {% for i in messages%}
                     <tr>
 
-                        <td> {{i.firstname}} </td>
-                        <td> {{i.lastname}} </td>
+
+                        <td> {{i.id}} </td>
+                        <td> {{i.parentname}} </td>
                         <td> {{i.email}} </td>
                         <td> {{i.phno}} </td>
                         <td> {{i.gender}} </td>
-                        <td> {{i.address}} </td>
-                        <td>{{i.city}} </td>
+                        <td> {{i.pincode}} </td>
+                        <!-- <td>{{i.city}} </td>
                         <td> {{i.state}}</td>
-                        <td> {{i.country}} </td>
+                        <td> {{i.country}} </td> -->
                     </tr>
                     {% endfor %}
                 </tbody>

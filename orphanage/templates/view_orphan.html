@@ -30,6 +30,7 @@
                 <thead>
                     <tr>
 
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Gender</th>
                         <th> Adopted</th>
@@ -40,6 +41,7 @@
                     {% for j in msg%}
                     <tr>
 
+                        <td> {{j.id}} </td>
                         <td> {{j.orphanname}} </td>
                         <td> {{j.gender}} </td>
                         <td> {{j.adopted}}</td>
