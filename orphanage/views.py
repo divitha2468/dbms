@@ -160,7 +160,7 @@ def submit_donation(request):
     d = donation(
         donor_id=request.POST['id'],
         cash = request.POST['cash'],
-        kind = request.POST['amount'],
+        kind = request.POST['kind'],
         date= request.POST['date'], 
     )
     d.save()
