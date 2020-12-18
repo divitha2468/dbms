@@ -1,13 +1,13 @@
 from django.db import models
 
 # Create your models here.
-class parent(models.Model):
+class staff(models.Model):
     #parentid=models.IntegerField(unique=True)
     # firstname=models.CharField(max_length=20)
-    parentname=models.CharField(max_length=20)
+    staffname=models.CharField(max_length=20)
     email=models.EmailField()
     phno=models.CharField(max_length=10)
-    gender=models.CharField(max_length=10)
+    designation=models.CharField(max_length=10)
     pincode=models.IntegerField()
     # address=models.CharField(max_length=100)
     # city=models.CharField(max_length=20)
@@ -15,7 +15,7 @@ class parent(models.Model):
     # country=models.CharField(max_length=20)
     class meta:
         db_table="parent"
-class pdetails(models.Model):
+class sdetails(models.Model):
 
     pincode=models.IntegerField()
     h_no=models.CharField(max_length=100)
@@ -23,11 +23,11 @@ class pdetails(models.Model):
     state=models.CharField(max_length=20)
     country=models.CharField(max_length=20)
     class meta:
-        db_table="pdetails"
+        db_table="sdetails"
     
 
 class orphan(models.Model):
-    #orphanid=models.IntegerField(unique=True)
+    staff=models.ForeignKey(staff,on_delete=models.CASCADE)
     orphanname=models.CharField(max_length=20)
     gender=models.CharField(max_length=10)
     adopted=models.IntegerField(default=0)
@@ -59,12 +59,12 @@ class ddetails(models.Model):
 
    
 class adoption(models.Model):
-    parent=models.ForeignKey(parent,on_delete=models.CASCADE)
+    donor=models.ForeignKey(donor,on_delete=models.CASCADE)
     orphan=models.ForeignKey(orphan,on_delete=models.CASCADE)
     date=models.DateField()
     class meta:
         db_table="adoption"
-        unique_together = ("parent", "orphan")
+        unique_together = ("donor", "orphan")
 
 class donation(models.Model):
     donor=models.ForeignKey(donor,on_delete=models.CASCADE)

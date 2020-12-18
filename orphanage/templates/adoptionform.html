@@ -7248,8 +7248,8 @@
                 <li><a href="/view_orphan">VIEW ORPHANS</a></li>
                 <li><a href="/donorform">ADD DONOR</a></li>
                 <li><a href="/view_donor">VIEW DONORS</a></li>
-                <li><a href="/parentform">ADD PARENT</a></li>
-                <li><a href="/view_parent">VIEW PARENTS</a></li>
+                <li><a href="/parentform">ADD STAFF</a></li>
+                <li><a href="/view_parent">VIEW STAFF</a></li>
                 <li><a href="/donationform">DONATION FORM</a></li>
                 <li><a href="/view_donationhistory">DONATION HISTORY</a></li>
                 <li><a href="/adoptionform" class="active">ADOPTION FORM</a></li>
@@ -7290,10 +7290,10 @@
                                     <tr>
                                         <td width="200px">PARENT NAME</td>
                                         <td>
-                                            <select name="parent_id"> 
+                                            <select name="donor_id"> 
                                                 <option  selected disabled="true" >--name--</option>
-                                                {% for data in parent_data %}
-                                                <option value="{{data.id}}">{{data.id}}---{{data.parentname}}</option>
+                                                {% for data in donor_data %}
+                                                <option value="{{data.id}}">{{data.id}}---{{data.donorname}}</option>
                                                 {% endfor %}
                                             </select>
                                         </td>

@@ -7248,8 +7248,8 @@
                 <li><a href="/view_orphan">VIEW ORPHANS</a></li>
                 <li><a href="/donorform">ADD DONOR</a></li>
                 <li><a href="/view_donor">VIEW DONORS</a></li>
-                <li><a href="/parentform" class="active">ADD PARENT</a></li>
-                <li><a href="/view_parent">VIEW PARENTS</a></li>
+                <li><a href="/parentform" class="active">ADD STAFF</a></li>
+                <li><a href="/view_parent">VIEW STAFF</a></li>
                 <li><a href="/donationform">DONATION FORM</a></li>
                 <li><a href="/view_donationhistory">DONATION HISTORY</a></li>
                 <li><a href="/adoptionform">ADOPTION FORM</a></li>
@@ -7284,14 +7284,14 @@
                         <form method="post" class="needs-validation" name="Form" action='/submit_parent/' novalidate role="form">
                             {% csrf_token %}
                             <center>
-                                <h1 style="color:slateblue"><u>PARENT REGISTRATION FORM</u></h1>
+                                <h1 style="color:slateblue"><u>STAFF REGISTRATION FORM</u></h1>
                                 <table>
 
                                     <tr>
-                                        <td width="200px">PARENT NAME</td>
+                                        <td width="200px">STAFF NAME</td>
                                         <td>
                                             <div class="form-inline">
-                                                <input type="text" name="pname" class="form-control" id="b" required>
+                                                <input type="text" name="sname" class="form-control" id="b" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
@@ -7315,8 +7315,8 @@
                                         <td><input id="d" name='phno' type="text" maxlength="10" />(10 digit number)</td>
                                     </tr>
                                     <tr>
-                                        <td width="200px">GENDER</td>
-                                        <td><input id="e" name='gender' type="text" /></td>
+                                        <td width="200px">DESIGNATION</td>
+                                        <td><input id="e" name='desig' type="text" /></td>
                                     </tr>
                                     <tr>
                                         <td width="200px">PINCODE</td>

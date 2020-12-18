@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 # from Crypto.PublicKey import RSA
 from django.db import connection
 
-from.models import parent,donor,orphan,adoption,donation
+from.models import staff,donor,orphan,adoption,donation
 # def register(request):
 #     if request.method == 'POST':
 #         form = UserCreationForm(request.POST)
@@ -63,10 +63,10 @@ def parentform(request):
     return render(request,"parentform.html")
 
 def adoptionform(request):
-    parent_data = parent.objects.all()
+    donor_data = donor.objects.all()
     orphan_data=orphan.objects.filter(adopted=0)
     context = {
-        'parent_data': parent_data,
+        'donor_data': donor_data,
         'orphan_data':orphan_data
     }
     return render(request,"adoptionform.html", context)
@@ -79,7 +79,11 @@ def donationform(request):
     print(id)
     return render(request,"donationform.html",context)
 def orphanform(request):
-    return render(request,"orphanform.html")
+    staff_data = staff.objects.all()
+    context = {
+        'staff_data': staff_data
+    }
+    return render(request,"orphanform.html",context)
 
 def donorform(request):
     return render(request,"donorform.html")
@@ -88,8 +92,8 @@ def sample_view(request):
 
 def submit_parent(request):
     cursor=connection.cursor()
-    cursor.execute("INSERT INTO orphanage_parent(parentname,email,phno,gender,pincode) VALUES ('"+ str(request.POST.get('pname')) + "','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('gender'))+"' ,'"+str(request.POST.get('pincode'))+"')")
-    cursor.execute("INSERT INTO orphanage_pdetails(pincode,h_no,city,state,country) VALUES ('"+str(request.POST.get('pincode'))+"' ,'"+str(request.POST.get('h_no'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
+    cursor.execute("INSERT INTO orphanage_staff(staffname,email,phno,designation,pincode) VALUES ('"+ str(request.POST.get('sname')) + "','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('desig'))+"' ,'"+str(request.POST.get('pincode'))+"')")
+    cursor.execute("INSERT INTO orphanage_sdetails(pincode,h_no,city,state,country) VALUES ('"+str(request.POST.get('pincode'))+"' ,'"+str(request.POST.get('h_no'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
     # p = parent(
     #     parentid=request.POST['pid'],
     #     firstname = request.POST['fname'],
@@ -106,18 +110,18 @@ def submit_parent(request):
     # p.save()
     return render(request,'orphanage/submitform.html')
 def submit_orphan(request):
-    # o = orphan(
-    #     orphanid= request.POST['oid'], 
-    #     orphanname = request.POST['oname'],
-    #     age = request.POST['age'],
-    #     gender= request.POST['gender'], 
-    #     dateofbirth= request.POST['dob'],
+    o = orphan(
+        staff_id= request.POST['id'], 
+        orphanname = request.POST['oname'],
+        # age = request.POST['age'],
+        gender= request.POST['gender'], 
+        dateofbirth= request.POST['dob'],
         
-    # )
-    # o.save()
+    )
+    o.save()
 
-    cursor=connection.cursor()
-    query=cursor.execute("INSERT INTO orphanage_orphan(orphanname,gender,adopted,dateofbirth) VALUES ('" +str(request.POST.get('oname'))+"','"+str(request.POST.get('gender'))+"' ,'" +str(request.POST.get('adopted'))+"','"+str(request.POST.get('dob'))+"')")
+    # cursor=connection.cursor()
+    # query=cursor.execute("INSERT INTO orphanage_orphan(staffname,orphanname,gender,adopted,dateofbirth) VALUES ('" +str(request.POST.get('oname'))+"','" +str(request.POST.get('oname'))+"','"+str(request.POST.get('gender'))+"' ,'" +str(request.POST.get('adopted'))+"','"+str(request.POST.get('dob'))+"')")
     return render(request,'orphanage/submitform.html')
 
 
@@ -143,7 +147,7 @@ def submit_donor(request):
 def submit_adoption(request):
     print(request.POST)
     a = adoption(
-        parent=parent.objects.get(id=request.POST['parent_id']),
+        donor=donor.objects.get(id=request.POST['donor_id']),
         orphan=orphan.objects.get(id=request.POST['orphan_id']),
         date= request.POST['date'], 
     )
@@ -165,7 +169,7 @@ def submit_donation(request):
     return render(request, 'orphanage/submitform.html')
 
 def view_parent(request):
-        data = parent.objects.all()
+        data = staff.objects.all()
         return render(request,'view_parent.html',{'messages':data})
        
 def view_orphan(request):
