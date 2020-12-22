@@ -108,7 +108,7 @@ def sample_view(request):
 #     return render(request,'orphanage/submitform.html')
 def submit_parent(request):
     cursor=connection.cursor()
-    cursor.execute("INSERT INTO orphanage_staff(staffname,deleted,email,phno,designation,pincode) VALUES ('"+ str(request.POST.get('sname')) + "','"+ str(request.POST.get('deleted')) + "','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('desig'))+"' ,'"+str(request.POST.get('pincode'))+"')")
+    cursor.execute("INSERT INTO orphanage_staff(staffname,email,phno,designation,pincode) VALUES ('"+ str(request.POST.get('sname')) + "', ' "+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('desig'))+"' ,'"+str(request.POST.get('pincode'))+"')")
     cursor.execute("INSERT INTO orphanage_sdetails(pincode,h_no,city,state,country) VALUES ('"+str(request.POST.get('pincode'))+"' ,'"+str(request.POST.get('h_no'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
     # p = parent(
     #     parentid=request.POST['pid'],
