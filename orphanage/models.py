@@ -8,7 +8,7 @@ class staff(models.Model):
     # deleted=models.IntegerField(default=0)
     email=models.EmailField()
     phno=models.CharField(max_length=10)
-    designation=models.CharField(max_length=10)
+    designation=models.CharField(max_length=30)
     pincode=models.IntegerField()
     # address=models.CharField(max_length=100)
     # city=models.CharField(max_length=20)

@@ -7296,7 +7296,7 @@
                                                     Looks good!
                                                 </div>
                                                 <div class="invalid-feedback">
-                                                    You must agree before submitting.
+                                                    INVALID!!
                                                 </div>
                                             </div>
                                         </td>
@@ -7307,39 +7307,119 @@
                                     </tr> -->
                                     <tr>
                                         <td width="200px">EMAIL ID</td>
-                                        <td><input id="c" name='emailid' type="email" /></td>
+                                        <td>
+                                            <div class="form-inline">
+                                                <input type="email" name="emailid" class="form-control" id="c" required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    INVALID!!
+                                                </div>
+                                            </div>
+                                        </td>
+                                    
                                     </tr>
                                     <tr>
                                         <td width="200px">MOBILE NUMBER</td>
                                         <option value="{{parent.phno}}"></option>
-                                        <td><input id="d" name='phno' type="text" maxlength="10" />(10 digit number)</td>
+                                        <td>
+                                            <div class="form-inline">
+                                                <input type="text" name="phno" maxlength="10" class="form-control" id="d" required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    INVALID!!
+                                                </div>
+                                            </div>
+                                            </td>
+
+                                        
                                     </tr>
                                     <tr>
                                         <td width="200px">DESIGNATION</td>
-                                        <td><input id="e" name='desig' type="text" /></td>
+                                        <td>
+                                            <div class="form-inline">
+                                                <input type="text" name="desig"  class="form-control" id="e" required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    INVALID!!
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        
                                     </tr>
                                     <tr>
                                         <td width="200px">PINCODE</td>
-                                        <td><input id="f" name='pincode' textarea cols="45" rows="4"></textarea>
-                                        </td>
+                                       
+                                            <td>
+                                                <div class="form-inline">
+                                                    <input name="pincode" textarea cols="45" rows="4" class="form-control" id="f" required></textarea>
+                                                    <div class="valid-feedback">
+                                                        Looks good!
+                                                    </div>
+                                                    <div class="invalid-feedback">
+                                                        INVALID!!
+                                                    </div>
+                                                </div>
+                                            </td>
+                                    
                                     </tr>
                                     <tr>
                                         <td width="200px">HOUSE NUMBER</td>
-                                        <td><input id="f" name='h_no' textarea cols="45" rows="4"></textarea>
-                                        </td>
+                                        
+                                            <td>
+                                                <div class="form-inline">
+                                                    <input name="h_no" textarea cols="45" rows="4" class="form-control" id="g" required></textarea>
+                                                    <div class="valid-feedback">
+                                                        Looks good!
+                                                    </div>
+                                                    <div class="invalid-feedback">
+                                                        INVALID!!
+                                                    </div>
+                                                </div>
+                                            </td>
+                                       
                                     </tr>
                                     <tr>
                                         <td width="200px">CITY</td>
-                                        <td><input id="g" name='city' type="text">(max 30 characters a-z and A-Z)</td>
+                                        
+                                        <td>
+                                            <div class="form-inline">
+                                                <input name="city" type="text"  class="form-control" id="h" required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    INVALID!!
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
 
                                     <tr>
                                         <td width="200px">STATE</td>
-                                        <td><input id="i" name='state' type="text">(max 30 characters a-z and A-Z)</td>
+                                        
+                                        <td>
+                                            <div class="form-inline">
+                                                <input name="state" type="text"  class="form-control" id="i" required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    INVALID!!
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="200px">COUNTRY</td>
                                         <td><input id='j' name='country' type="text" value="India"></td>
+
                                     </tr>
                                     <td></td>
                                     <td align="center" style="padding-right:180px"><input id="submit" onclick="validate();" type="submit" value="Submit" />
