@@ -53,6 +53,13 @@ def login(request):
     return render(request, 'orphanage/login.html', {'form': form})
 def sample_view(request):
     return render(request,"sample_view.html")
+def deletestaff(request):
+    staff_data=staff.objects.filter(deleted=0)
+    context = {
+        
+        'staff_data':staff_data
+    }
+    return render(request,"deletestaff.html", context)
 def logout_request(request):
     logout(request)
     messages.info(request,"you have successfully loggedout")
@@ -90,9 +97,18 @@ def donorform(request):
 def sample_view(request):
     return render(request,'orphanage/sample_view.html')
 
+# def submit_delete(request):
+#     # deleted=request.GET['deleted']
+#     # data=staff.objects.get(id=request.GET['id'])
+#     # if data.deleted==0:
+#     #     data.deleted=1
+#     #     data.save(['deleted'])
+#     staff_id=request.GET['id']
+#     staff.objects.get(id=staff_id).update(deleted="1")
+#     return render(request,'orphanage/submitform.html')
 def submit_parent(request):
     cursor=connection.cursor()
-    cursor.execute("INSERT INTO orphanage_staff(staffname,email,phno,designation,pincode) VALUES ('"+ str(request.POST.get('sname')) + "','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('desig'))+"' ,'"+str(request.POST.get('pincode'))+"')")
+    cursor.execute("INSERT INTO orphanage_staff(staffname,deleted,email,phno,designation,pincode) VALUES ('"+ str(request.POST.get('sname')) + "','"+ str(request.POST.get('deleted')) + "','"+str(request.POST.get('emailid'))+"','"+str(request.POST.get('phno'))+"','"+str(request.POST.get('desig'))+"' ,'"+str(request.POST.get('pincode'))+"')")
     cursor.execute("INSERT INTO orphanage_sdetails(pincode,h_no,city,state,country) VALUES ('"+str(request.POST.get('pincode'))+"' ,'"+str(request.POST.get('h_no'))+"','"+str(request.POST.get('city'))+"','"+str(request.POST.get('state'))+"','"+str(request.POST.get('country'))+"')")
     # p = parent(
     #     parentid=request.POST['pid'],

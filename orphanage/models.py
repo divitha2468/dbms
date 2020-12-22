@@ -5,6 +5,7 @@ class staff(models.Model):
     #parentid=models.IntegerField(unique=True)
     # firstname=models.CharField(max_length=20)
     staffname=models.CharField(max_length=20)
+    deleted=models.IntegerField(default=0)
     email=models.EmailField()
     phno=models.CharField(max_length=10)
     designation=models.CharField(max_length=10)

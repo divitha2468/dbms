@@ -1,5 +1,3 @@
 
 CREATE TRIGGER upd_check AFTER INSERT ON ORPHANAGE_ADOPTION FOR EACH ROW call adopted(new.orphan_id);
 
-
-
