@@ -122,6 +122,7 @@ AUTHENTICATION_BACKENDS = (
 # SOCIAL_AUTH_GOOGLE_OUTH2_KEY='669500903341-7fd5sk19hm5mioulp2tpc6d9n197dt0s.apps.googleusercontent.com'
 # SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='uaySw5ZkC_TMDrge1Vm5FIqP'
 # SOCIAL_AUTH_URL_NAMESPACE='social'
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
