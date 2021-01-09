@@ -7148,6 +7148,7 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        font-family: Arial Black;
     }
     
     .sidebar-nav li {
@@ -7232,7 +7233,8 @@
     }
 </style>
 
-<body style="background-color: MediumAquaMarine">
+<body style="background-color:  rgb(226, 204, 132)">
+
     {% csrf_token %}
     <script>
         alert('{{message}}');
@@ -7268,7 +7270,7 @@
                             table {
                                 border: "0";
                                 border-collapse: collapse;
-                                background-color: rgb(90, 159, 205);
+                                background-color: rgb(239, 248, 247);
                                 border: 10px solid rgb(168, 168, 168);
                                 padding: 20px;
                                 font-family: Arial Black;
@@ -7293,37 +7295,7 @@
                             <center><br><br>
                                 <h1>ORPHAN REGISTRATION FORM</h1><br><br>
                                 <table>
-                                    <!-- <tr>
-                                        <td width="200px">ORPHAN ID</td>
-                                        <td>
-                                            <div class="form-inline">
-                                                <input type="number" name="oid" class="form-control" id="a" required>
-                                                <div class="valid-feedback">
-                                                    Looks good!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    You must agree before submitting.
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr> -->
-                                    <!-- <tr>
-                                        <td width="200px">DESIGNATION</td>
-                                        <td>
-                                            <div class="form-inline">
-                                                <input type="text" name="desig" class="form-control" id="e" required>
-                                                <div class="valid-feedback">
-                                                    Looks good!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    INVALID!!
-                                                </div>
-                                            </div>
-                                        </td>
 
-
-                                    </tr> -->
                                     <td width="200px">STAFF ID</td>
                                     <td>
                                         <div class="form-inline">
@@ -7347,17 +7319,10 @@
                                         <td width="200px"> ORPHAN NAME</td>
                                         <td><input name='oname' type="text" maxlength="30" />(max 30 characters a-z and A-Z)</td>
                                     </tr>
-                                    <!-- <tr>
-                                        <td width="200px"> AGE</td>
-                                        <td><input name='age' type="number" /></td>
-                                    </tr> -->
 
                                     <tr>
                                         <td width="200px" id="gender"> GENDER</td>
                                         <td><input name='gender' type="text"></td>
-                                        <!-- <td><input type="radio" name="user-radio" id="male" value="male" required="required" /> <label for id="male">male</label>
-                                            <input type="radio" name="user-radio" id="female" value="female" required="required" /><label for id="female">female</label>
-                                            <input type="radio" name="user-radio" id="other" value="other" required="required" /><label for id="other">other</label></td> -->
                                     </tr>
                                     <tr>
                                         <td width="200px">ADOPTED(0/1)</td>
