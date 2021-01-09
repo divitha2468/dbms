@@ -5,75 +5,6 @@
     <input type="submit" value="Log In">
 </form> -->
 <html lang="en">
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Coiny', cursive;
-        background: #68c993;
-    }
-    
-    .container {
-        width: 300px;
-        padding: 40px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #7ed3ad;
-        text-align: center;
-        border-radius: 5px;
-        box-shadow: 0 50px 50px;
-    }
-    
-    .container h1 {
-        color: white;
-        font-weight: 500;
-    }
-    
-    .container input[type="text"],
-    .container input[type="password"] {
-        border: 0;
-        background: none;
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        border: 2px solid #3498db;
-        padding: 14px 10px;
-        width: 200px;
-        outline: none;
-        color: rgb(219, 231, 225);
-        font-size: 16px;
-        border-radius: 24px;
-        transition: 0.25s;
-    }
-    
-    .container input[type="text"]:focus,
-    .container input[type="password"]:focus {
-        width: 280px;
-        border-color: #2ecc71;
-    }
-    
-    .container input[type="submit"] {
-        border: 0;
-        background: none;
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        border: 2px solid #131f19;
-        padding: 14px 25px;
-        outline: none;
-        color: rgb(15, 11, 13);
-        border-radius: 24px;
-        transition: 0.25s;
-        font-size: 17px;
-        font-family: 'Libre Baskerville', serif;
-    }
-    
-    .container input[type="submit"]:hover {
-        background: #b40f6a;
-    }
-</style>
 
 <head>
     <meta charset="utf-8">
@@ -84,10 +15,81 @@
 </head>
 
 <body class="container mt-5">
+
     {% block content %}
     <h1>Log In</h1>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Coiny', cursive;
+            background: #cad1cd;
+            background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2Fharsh-light-news%2Forphanage-of-terror-50c8e4a37d00&psig=AOvVaw2CHrihnp5YUbdl01BQTRZl&ust=1608993671831000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCID7htiu6e0CFQAAAAAdAAAAABAD")
+        }
+        
+        .container {
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #2acac2;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 50px 50px;
+        }
+        
+        .container h1 {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .container input[type="text"],
+        .container input[type="password"] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: rgb(219, 231, 225);
+            font-size: 16px;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        
+        .container input[type="text"]:focus,
+        .container input[type="password"]:focus {
+            width: 280px;
+            border-color: #2ecc71;
+        }
+        
+        .container input[type="submit"] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #131f19;
+            padding: 14px 25px;
+            outline: none;
+            color: rgb(233, 222, 228);
+            border-radius: 24px;
+            transition: 0.25s;
+            font-size: 17px;
+            font-family: 'Libre Baskerville', serif;
+        }
+        
+        .container input[type="submit"]:hover {
+            background: #c4bfc2;
+        }
+    </style>
     <form action="{% url 'orphanage:login' %}" method="post">
-        {% csrf_token %} {{ form }}
+        <img src="static/login.jpg"> {% csrf_token %} {{ form }}
         <input type="submit" value="Log In">
     </form>
     <!-- <p class="text-center">no acount<a href='/register'>create an account</a>.</p> -->

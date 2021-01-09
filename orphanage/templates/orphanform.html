@@ -88,6 +88,7 @@
     h1 {
         margin: 0.67em 0;
         font-size: 2em;
+        font-family: Showcard Gothic;
     }
     
     abbr[title] {
@@ -7267,9 +7268,10 @@
                             table {
                                 border: "0";
                                 border-collapse: collapse;
-                                background-color: slateblue;
+                                background-color: rgb(90, 159, 205);
                                 border: 10px solid rgb(168, 168, 168);
                                 padding: 20px;
+                                font-family: Arial Black;
                             }
                             
                             td {
@@ -7280,11 +7282,16 @@
                             .smallbox {
                                 height: 50px;
                             }
+                            
+                            h1 {
+                                color: rgb(4, 9, 10);
+                                font-family: Showcard Gothic;
+                            }
                         </style>
                         <form method="post" class="needs-validation" name="Form" action='/submit_orphan/' novalidate role="form">
                             {% csrf_token %}
-                            <center>
-                                <h1 style="color:slateblue"><u>ORPHAN REGISTRATION FORM</u></h1>
+                            <center><br><br>
+                                <h1>ORPHAN REGISTRATION FORM</h1><br><br>
                                 <table>
                                     <!-- <tr>
                                         <td width="200px">ORPHAN ID</td>
@@ -7301,17 +7308,49 @@
                                         </td>
                                     </tr>
                                     <tr> -->
+                                    <!-- <tr>
+                                        <td width="200px">DESIGNATION</td>
+                                        <td>
+                                            <div class="form-inline">
+                                                <input type="text" name="desig" class="form-control" id="e" required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    INVALID!!
+                                                </div>
+                                            </div>
+                                        </td>
 
+
+                                    </tr> -->
                                     <td width="200px">STAFF ID</td>
                                     <td>
+<<<<<<< HEAD
                                         <select name="id"> 
 
                                                 <option  selected disabled="true" >--name--</option>
+=======
+                                        <div class="form-inline">
+                                            <!-- <input type="text" name="desig" class="form-control" id="e" required> -->
+                                            <select name="id" class="form-control" required> 
+                                                <option  selected disabled="true" >name</option>
+>>>>>>> 5580d53048b6fe66f024c23376c5e08a510f5590
                                                 {% for data in staff_data %}
-                                                <option value="{{data.id}}">{{data.id}}---{{data.staffname}}</option>
+                                                <option value="{{data.id}}">{{data.id}}-{{data.staffname}}</option>
                                                 {% endfor %}
                                             </select>
+<<<<<<< HEAD
                                             
+=======
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                            <div id="error" class="invalid-feedback">
+                                                INVALID!!
+                                            </div>
+                                        </div>
+>>>>>>> 5580d53048b6fe66f024c23376c5e08a510f5590
 
                                     </td>
                                     <tr>
@@ -7335,6 +7374,7 @@
                                     </tr> -->
 
                                     <tr>
+<<<<<<< HEAD
                                         <td width="200px"> GENDER</td>
                                         
                                         <td>
@@ -7348,6 +7388,13 @@
                                                 </div>
                                             </div>
                                         </td>
+=======
+                                        <td width="200px" id="gender"> GENDER</td>
+                                        <td><input name='gender' type="text"></td>
+                                        <!-- <td><input type="radio" name="user-radio" id="male" value="male" required="required" /> <label for id="male">male</label>
+                                            <input type="radio" name="user-radio" id="female" value="female" required="required" /><label for id="female">female</label>
+                                            <input type="radio" name="user-radio" id="other" value="other" required="required" /><label for id="other">other</label></td> -->
+>>>>>>> 5580d53048b6fe66f024c23376c5e08a510f5590
                                     </tr>
                                     <tr>
                                         <td width="200px">ADOPTED(0/1)</td>

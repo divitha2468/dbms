@@ -7267,9 +7267,10 @@
                             table {
                                 border: "0";
                                 border-collapse: collapse;
-                                background-color: slateblue;
+                                background-color: rgb(90, 159, 205);
                                 border: 10px solid rgb(168, 168, 168);
                                 padding: 20px;
+                                font-family: Arial Black;
                             }
                             
                             td {
@@ -7280,11 +7281,16 @@
                             .smallbox {
                                 height: 50px;
                             }
+                            
+                            h1 {
+                                color: rgb(4, 9, 10);
+                                font-family: Showcard Gothic;
+                            }
                         </style>
                         <form method="post" class="needs-validation" name="Form" action='/submit_parent/' novalidate role="form">
                             {% csrf_token %}
-                            <center>
-                                <h1 style="color:slateblue"><u>STAFF REGISTRATION FORM</u></h1>
+                            <center><br></br>
+                                <h1>STAFF REGISTRATION FORM</h1>
                                 <table>
 
                                     <tr>
@@ -7318,7 +7324,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                    
+
                                     </tr>
                                     <tr>
                                         <td width="200px">MOBILE NUMBER</td>
@@ -7333,15 +7339,15 @@
                                                     INVALID!!
                                                 </div>
                                             </div>
-                                            </td>
+                                        </td>
 
-                                        
+
                                     </tr>
                                     <tr>
                                         <td width="200px">DESIGNATION</td>
                                         <td>
                                             <div class="form-inline">
-                                                <input type="text" name="desig"  class="form-control" id="e" required>
+                                                <input type="text" name="desig" class="form-control" id="e" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
@@ -7351,46 +7357,46 @@
                                             </div>
                                         </td>
 
-                                        
+
                                     </tr>
                                     <tr>
                                         <td width="200px">PINCODE</td>
-                                       
-                                            <td>
-                                                <div class="form-inline">
-                                                    <input name="pincode" textarea cols="45" rows="4" class="form-control" id="f" required></textarea>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
-                                                    <div class="invalid-feedback">
-                                                        INVALID!!
-                                                    </div>
+
+                                        <td>
+                                            <div class="form-inline">
+                                                <input name="pincode" textarea cols="45" rows="4" class="form-control" id="f" required></textarea>
+                                                <div class="valid-feedback">
+                                                    Looks good!
                                                 </div>
-                                            </td>
-                                    
+                                                <div class="invalid-feedback">
+                                                    INVALID!!
+                                                </div>
+                                            </div>
+                                        </td>
+
                                     </tr>
                                     <tr>
                                         <td width="200px">HOUSE NUMBER</td>
-                                        
-                                            <td>
-                                                <div class="form-inline">
-                                                    <input name="h_no" textarea cols="45" rows="4" class="form-control" id="g" required></textarea>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
-                                                    <div class="invalid-feedback">
-                                                        INVALID!!
-                                                    </div>
+
+                                        <td>
+                                            <div class="form-inline">
+                                                <input name="h_no" textarea cols="45" rows="4" class="form-control" id="g" required></textarea>
+                                                <div class="valid-feedback">
+                                                    Looks good!
                                                 </div>
-                                            </td>
-                                       
+                                                <div class="invalid-feedback">
+                                                    INVALID!!
+                                                </div>
+                                            </div>
+                                        </td>
+
                                     </tr>
                                     <tr>
                                         <td width="200px">CITY</td>
-                                        
+
                                         <td>
                                             <div class="form-inline">
-                                                <input name="city" type="text"  class="form-control" id="h" required>
+                                                <input name="city" type="text" class="form-control" id="h" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
@@ -7403,10 +7409,10 @@
 
                                     <tr>
                                         <td width="200px">STATE</td>
-                                        
+
                                         <td>
                                             <div class="form-inline">
-                                                <input name="state" type="text"  class="form-control" id="i" required>
+                                                <input name="state" type="text" class="form-control" id="i" required>
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
