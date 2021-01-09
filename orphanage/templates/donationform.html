@@ -7271,6 +7271,7 @@
                                 background-color: rgb(90, 159, 205);
                                 border: 10px solid rgb(168, 168, 168);
                                 padding: 20px;
+                                font-family: Arial Black;
                             }
                             
                             td {
@@ -7281,18 +7282,23 @@
                             .smallbox {
                                 height: 50px;
                             }
+                            
+                            h1 {
+                                color: rgb(4, 9, 10);
+                                font-family: Showcard Gothic;
+                            }
                         </style>
                         <form method="post" class="needs-validation" name="Form" action='/submit_donation/' novalidate role="form">
                             {% csrf_token %}
-                            <center>
-                                <h1 style="color:slateblue"><u>DONATION FORM</u></h1>
+                            <center><br></br>
+                                <h1>DONATION FORM</h1>
                                 <table>
-                                    <td width="200px">DONOR ID</td>
+                                    <td width="200px">DONOR ID</td><br><br>
                                     <td>
                                         <select name="id"> 
-                                            <option  selected disabled="true" >--name--</option>
+                                            <option  selected disabled="true" >name</option>
                                             {% for data in donor_data %}
-                                            <option value="{{data.id}}">{{data.id}}---{{data.donorname}}</option>
+                                            <option value="{{data.id}}">{{data.id}}-{{data.donorname}}</option>
                                             {% endfor %}
                                         </select>
                                     </td>

@@ -2,4 +2,5 @@
  update orphanage_orphan
  set adopted=1 where id=orphan_id;
     
-    
+Create Procedure adopted(orphan_id int)
+ delete from orphanage_orphan where id=orphan_id;

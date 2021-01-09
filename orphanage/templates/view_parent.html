@@ -7131,6 +7131,7 @@
         overflow-y: auto;
         z-index: 1000;
         transition: all 0.4s ease 0s;
+        font-family: Arial Black;
     }
     
     #page-content-wrapper {
@@ -7144,6 +7145,7 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        font-family: Arial Black;
     }
     
     .sidebar-nav li {
@@ -7275,6 +7277,8 @@
                             background-color: rgb(90, 159, 205);
                             border: 10px solid rgb(168, 168, 168);
                             padding: 20px;
+                            font-family: "Berlin Sans FB Demi";
+                            font-size: 20px;
                         }
                         
                         th,
@@ -7286,11 +7290,17 @@
                         .smallbox {
                             height: 50px;
                         }
+                        
+                        h2,
+                        h4 {
+                            color: rgb(4, 9, 10);
+                            font-family: Showcard Gothic;
+                        }
                     </style>
                     <div class="row">
                         <div class="col-md-12">
 
-                            <h2 class="text-center"> Parents list</h2>
+                            <h2 class="text-center"> Staff list</h2>
                             <h4><em> Total : {{messages|length}}</em></h4>
                             <table class="table">
                                 <thead>
