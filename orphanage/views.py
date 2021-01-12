@@ -132,10 +132,11 @@ def submit_orphan(request):
         # age = request.POST['age'],
         gender= request.POST['gender'], 
         dateofbirth= request.POST['dob'],
+       
         
     )
     o.save()
-
+    
     # cursor=connection.cursor()
     # query=cursor.execute("INSERT INTO orphanage_orphan(staffname,orphanname,gender,adopted,dateofbirth) VALUES ('" +str(request.POST.get('oname'))+"','" +str(request.POST.get('oname'))+"','"+str(request.POST.get('gender'))+"' ,'" +str(request.POST.get('adopted'))+"','"+str(request.POST.get('dob'))+"')")
     return render(request,'orphanage/submitform.html')
@@ -188,24 +189,45 @@ def view_parent(request):
         data = staff.objects.all()
         return render(request,'view_parent.html',{'messages':data})
        
-def view_orphan(request):
-    data = orphan.objects.filter(adopted=0)
+def submit_age(request):
+    age=request.GET['age']
+    data = orphan.objects.filter(adopted=0,gender=age)
     return render (request, 'view_orphan.html', {'msg':data})
+def view_orphan(request):
+
+    data = orphan.objects.filter(adopted=0)
+    return render (request, 'view_age.html', {'msg':data})
 
 
 def view_donor(request):
     data = donor.objects.all()
     return render  (request, 'view_donor.html', {'any':data})
 
+def submit_cash(request):
+    amountf=int(request.GET['amountfrom'])
+    amountt=int(request.GET['amountto'])
+    data = donation.objects.filter(cash__range=(amountf,amountt))
+    return render (request, 'view_donationhistory.html', {'his':data})
 
 def view_donationhistory(request):
     data = donation.objects.all()
-    return render (request, 'view_donationhistory.html', {'his':data})
+    return render (request, 'view_cash.html', {'his':data})
 
+def submit_year(request):
+    year=request.GET['year']
+    data = orphan.objects.filter(adopted=0,dateofbirth__year=year)
+    return render (request, 'view_orphan.html', {'msg':data})
+
+def submit_adopt(request):
+    year=request.GET['year']
+    data = adoption.objects.filter(date__year=year)
+    return render (request, 'view_adoptionhistory.html', {'adop':data})
 
 def view_adoptionhistory(request):
+    # year=request.POST['year']
+    # data = adoption.objects.filter(date=year.year)
     data = adoption.objects.all()
-    return render (request, 'view_adoptionhistory.html', {'adop':data}) 
+    return render (request, 'view_adopt.html', {'adop':data}) 
 
 
 

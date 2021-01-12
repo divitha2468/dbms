@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class staff(models.Model):
     #parentid=models.IntegerField(unique=True)
@@ -32,8 +33,16 @@ class orphan(models.Model):
     orphanname=models.CharField(max_length=20)
     gender=models.CharField(max_length=10)
     adopted=models.IntegerField(default=0)
-    # age=models.IntegerField()
     dateofbirth=models.DateField()
+    
+
+    def age(self):
+            import datetime
+            dob = self.dateofbirth
+            tod = datetime.date.today()
+            my_age = (tod.year - dob.year) - int((tod.month, tod.day) < (dob.month, dob.day))
+            return my_age
+    age=property(age)
     class meta:
         db_table="orphan"
 
