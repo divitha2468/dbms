@@ -217,6 +217,11 @@ def submit_year(request):
     year=request.GET['year']
     data = orphan.objects.filter(adopted=0,dateofbirth__year=year)
     return render (request, 'view_orphan.html', {'msg':data})
+def submit_year2(request):
+    year=request.GET['year']
+    data = donation.objects.filter(date__year=year)
+    return render (request, 'view_donationhistory.html', {'his':data})
+
 
 def submit_adopt(request):
     year=request.GET['year']

@@ -7309,59 +7309,73 @@
                                     <td></td>
                                     <td align="center" style="padding-right:180px"><input type="submit" value="Submit" />
                                     </td>
-
-                                </table>
-                                <div class="row">
-                                    <div class="col-md-12">
-
-                                        <h2 class="text-center"> Donation History</h2>
-                                        <h4><em> Total : {{his|length}}</em></h4>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Donor ID</th>
-                                                    <th>CASH</th>
-                                                    <th>KIND</th>
-                                                    <th>Date of Donation</th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {% for i in his%}
-                                                <tr>
-                                                    <td> {{i.donor.id}} </td>
-                                                    <td> {{i.cash}} </td>
-                                                    <td> {{i.kind}} </td>
-                                                    <td> {{i.date}} </td>
-
-                                                </tr>
-                                                {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </center>
-                            <script>
-                                // Example starter JavaScript for disabling form submissions if there are invalid fields
-                                (function() {
-                                    'use strict';
-                                    window.addEventListener('load', function() {
-                                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                        var forms = document.getElementsByClassName('needs-validation');
-                                        // Loop over them and prevent submission
-                                        var validation = Array.prototype.filter.call(forms, function(form) {
-                                            form.addEventListener('submit', function(event) {
-                                                if (form.checkValidity() === false) {
-                                                    event.preventDefault();
-                                                    event.stopPropagation();
-                                                }
-                                                form.classList.add('was-validated');
-                                            }, false);
-                                        });
-                                    }, false);
-                                })();
-                            </script>
                         </form>
+                        <form method="GET" class="needs-validation" name="Form" action='/submit_year2/' novalidate role="form">
+                            <table>
+                                <h1><u>DONATION YEAR</u></h1>
+                                <tr>
+                                    <td width="200px">year</td>
+                                    <td><input name='year' type="number" /></td>
+                                </tr>
+
+                                <td></td>
+                                <td align="center" style="padding-right:180px"><input type="submit" value="Submit" />
+                                </td>
+
+                            </table>
+                        </form>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h2 class="text-center"> Donation History</h2>
+                                <h4><em> Total : {{his|length}}</em></h4>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Donor ID</th>
+                                            <th>CASH</th>
+                                            <th>KIND</th>
+                                            <th>Date of Donation</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in his%}
+                                        <tr>
+                                            <td> {{i.donor.id}} </td>
+                                            <td> {{i.cash}} </td>
+                                            <td> {{i.kind}} </td>
+                                            <td> {{i.date}} </td>
+
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </center>
+                        <script>
+                            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function() {
+                                'use strict';
+                                window.addEventListener('load', function() {
+                                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                    var forms = document.getElementsByClassName('needs-validation');
+                                    // Loop over them and prevent submission
+                                    var validation = Array.prototype.filter.call(forms, function(form) {
+                                        form.addEventListener('submit', function(event) {
+                                            if (form.checkValidity() === false) {
+                                                event.preventDefault();
+                                                event.stopPropagation();
+                                            }
+                                            form.classList.add('was-validated');
+                                        }, false);
+                                    });
+                                }, false);
+                            })();
+                        </script>
+
                     </div>
 
                 </div>

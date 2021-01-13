@@ -24,6 +24,7 @@ urlpatterns=[
     path('submit_age/', views.submit_age, name="submit_age"),
     path('submit_cash/', views.submit_cash, name="submit_cash"),
     path('submit_year/', views.submit_year, name="submit_year"),
+    path('submit_year2/', views.submit_year2, name="submit_year2"),
     #path('', views.login, name="login"),
     # path('deletestaff/', views.deletestaff, name="deletestaff"),
     # path('submit_delete/', views.submit_delete, name="submit_delete"),
